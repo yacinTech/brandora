@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import "./globals.css";
 import WhatsAppButton from "../components/WhatsAppButton";
 import Script from "next/dist/client/script";
-import Script from "next/dist/client/script";
+
 
 export const metadata = {
   metadataBase: new URL("https://brandora-iota.vercel.app/"),
