@@ -86,6 +86,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 />
+<meta name="google-site-verification" content="3BbwjPj8bAVzd3aTElUz1eldAN8BYglR5HHZafngTM0" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FTL9S7F1EW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FTL9S7F1EW');
+</script>
       </head>
       <body>
         <script
