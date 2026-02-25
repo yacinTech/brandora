@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./globals.css";
 import WhatsAppButton from "../components/WhatsAppButton";
+import Script from "next/dist/client/script";
+import Script from "next/dist/client/script";
 
 export const metadata = {
   metadataBase: new URL("https://brandora-iota.vercel.app/"),
@@ -89,15 +91,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 <meta name="google-site-verification" content="3BbwjPj8bAVzd3aTElUz1eldAN8BYglR5HHZafngTM0" />
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FTL9S7F1EW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FTL9S7F1EW');
-</script>
+ {/* Google Tag (gtag.js) */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-FTL9S7F1EW"
+        />
+        <Script
+          id="google-gtag"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-FTL9S7F1EW');
+            `,
+          }}
+        />
       </head>
       <body>
         <script
