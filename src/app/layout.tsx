@@ -5,7 +5,7 @@ import "./globals.css";
 import WhatsAppButton from "../components/WhatsAppButton";
 
 export const metadata = {
-  metadataBase: new URL("https://www.brandora.ma"),
+  metadataBase: new URL("https://brandora-iota.vercel.app/"),
 
   title: {
     default: "Brandora - Agence Digitale au Maroc | Création Sites Web & SEO",
@@ -33,7 +33,7 @@ export const metadata = {
     title: "Brandora - Agence Digitale au Maroc",
     description:
       "Création de sites web, applications et optimisation SEO au Maroc.",
-    url: "https://www.brandora.ma",
+    url: "https://brandora-iota.vercel.app/",
     siteName: "Brandora",
     locale: "fr_FR",
     type: "website",
@@ -56,10 +56,10 @@ export const metadata = {
   },
 
   alternates: {
-    canonical: "https://www.brandora.ma",
+    canonical: "https://brandora-iota.vercel.app/",
     languages: {
-      "fr-FR": "https://www.brandora.ma",
-      "ar-MA": "https://www.brandora.ma/ar",
+      "fr-FR": "https://brandora-iota.vercel.app/",
+      "ar-MA": "https://brandora-iota.vercel.app/",
     },
   },
 
@@ -95,8 +95,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "Brandora",
-      url: "https://www.brandora.ma",
-      logo: "https://www.brandora.ma/logo.png",
+      url: "https://brandora-iota.vercel.app/",
+      logo: "https://brandora-iota.vercel.app/logo.png",
       description:
         "Agence digitale spécialisée en création de sites web, développement d'applications et SEO au Maroc.",
       address: {
