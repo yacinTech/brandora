@@ -109,6 +109,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             `,
           }}
         />
+
+        <Script
+  src="https://www.googletagmanager.com/gtag/js?id=G-FTL9S7F1EW"
+  strategy="afterInteractive"
+/>
+
+<Script id="google-analytics" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-FTL9S7F1EW');
+  `}
+</Script>
       </head>
       <body>
         <script
