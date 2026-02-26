@@ -12,7 +12,7 @@ export default function Navbar() {
       <div className="container">
         {/* Logo */}
         <div className="logo-container">
-          <div   className="logo-wrapper">
+          <div className="logo-wrapper">
             <img src="/logo.png" alt="Brandora Logo" className="logo-img" />
           </div>
           <h1 className="logo-text">Brandora</h1>
