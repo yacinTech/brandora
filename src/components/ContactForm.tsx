@@ -58,6 +58,7 @@ console.log("PUBLIC KEY:", process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
       setError("حدث خطأ أثناء الإرسال، حاول مرة أخرى.");
     }
 
+    
     setLoading(false);
   };
 
