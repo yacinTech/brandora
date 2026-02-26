@@ -51,6 +51,7 @@ export default function ContactForm() {
         message: "",
       });
     } catch (err) {
+      console.error("EmailJS error:", err);
       setError("حدث خطأ أثناء الإرسال، حاول مرة أخرى.");
     }
 
