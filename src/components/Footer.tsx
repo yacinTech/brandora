@@ -28,26 +28,26 @@ export default function Footer() {
         <div className="footer-section">
           <h4>Liens utiles</h4>
           <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">À propos</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/about">À propos</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
 
         {/* ---------- Contact ---------- */}
         <div className="footer-section">
           <h4>Contact</h4>
-          <p>Email: jeenmatheo2@gmail.com</p>
+          <p>Email: elynor.contact@gmail.com</p>
           <p>Téléphone: +212625902672</p>
           <div className="social-icons">
-            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+            <a href="https://www.facebook.com/branddorra/" target="_blank" rel="noreferrer">
               <FaFacebookF />
             </a>
             <a href="https://wa.me/212625902672" target="_blank" rel="noreferrer">
               <FaWhatsapp />
             </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/brandorra1" target="_blank" rel="noreferrer">
               <FaInstagram />
             </a>
           </div>

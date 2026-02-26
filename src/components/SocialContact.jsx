@@ -15,7 +15,7 @@ export default function SocialContact() {
         <div className="social-grid">
 
           <a
-            href="https://facebook.com/brandora"
+            href="https://www.facebook.com/branddorra/"
             target="_blank"
             rel="noopener noreferrer"
             className="social-card"
@@ -25,7 +25,7 @@ export default function SocialContact() {
           </a>
 
           <a
-            href="https://instagram.com/brandora"
+            href="https://instagram.com/brandorra1"
             target="_blank"
             rel="noopener noreferrer"
             className="social-card"
@@ -35,7 +35,7 @@ export default function SocialContact() {
           </a>
 
           <a
-            href="https://wa.me/212600000000"
+            href="https://wa.me/212625902672"
             target="_blank"
             rel="noopener noreferrer"
             className="social-card"
@@ -45,7 +45,7 @@ export default function SocialContact() {
           </a>
 
           <a
-            href="mailto:contact@brandora.ma"
+            href="mailto:elynor.contact@gmail.com"
             className="social-card"
           >
             <i className="fas fa-envelope"></i>
@@ -53,7 +53,7 @@ export default function SocialContact() {
           </a>
 
           <a
-            href="tel:+212600000000"
+            href="tel:+212625902672"
             className="social-card"
           >
             <i className="fas fa-phone"></i>

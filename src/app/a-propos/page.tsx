@@ -80,18 +80,18 @@ export default function AboutPage() {
 
           <div className="contact-grid">
 
-            <a href="mailto:contact@brandora.ma" className="contact-card">
+            <a href="mailto:elynor.contact@gmail.com" className="contact-card">
               <i className="fas fa-envelope"></i>
-              <p>contact@brandora.ma</p>
+              <p>elynor.contact@gmail.com</p>
             </a>
 
-            <a href="tel:+212600000000" className="contact-card">
+            <a href="tel:+212625902672" className="contact-card">
               <i className="fas fa-phone"></i>
-              <p>+212 6 00 00 00 00</p>
+              <p>+212 6 25 90 26 72</p>
             </a>
 
             <a
-              href="https://wa.me/212600000000"
+              href="https://wa.me/212625902672"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-card"
@@ -101,7 +101,7 @@ export default function AboutPage() {
             </a>
 
             <a
-              href="https://instagram.com/brandora"
+              href="https://instagram.com/brandorra1"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-card"

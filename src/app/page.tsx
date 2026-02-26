@@ -10,6 +10,7 @@ import SiteTypes from "../components/SiteTypes";
 import HeroSection from "../components/HeroSection";
 import ServicesSection from "../components/ServicesSection";
 import CallToActionSection from "@/src/components/CallToActionSection";
+import SocialContact from "@/src/components/SocialContact";
 
 
 export default function HomePage() {
@@ -25,6 +26,7 @@ export default function HomePage() {
       <Testimonials />
       <CallToActionSection />
       <ContactForm />
+      <SocialContact />
       
 
       

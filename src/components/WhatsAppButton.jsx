@@ -1,7 +1,7 @@
 "use client";
 
 export default function WhatsAppButton() {
-  const phoneNumber = "212600000000"; // ضع رقمك هنا بصيغة دولية بدون +
+  const phoneNumber = "212625902672"; // ضع رقمك هنا بصيغة دولية بدون +
 const message = "Bonjour, je suis intéressé par vos services. Pouvez-vous me contacter ?";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
