@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://www.brandora.ma/sitemap.xml",
+    sitemap: "https://brandora.fun/sitemap.xml",
   };
 }
