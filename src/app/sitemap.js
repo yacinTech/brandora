@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "https://www.brandora.ma";
+  const baseUrl = "https://brandora.fun/sitemap.xml";
 
   return [
     {
