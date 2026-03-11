@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function AboutPage() {
   return (
     <>
@@ -11,18 +13,28 @@ export default function AboutPage() {
 
       <section className="about-page">
 
-        {/* HERO */}
+        {/* HERO IMAGE */}
         <div className="about-hero">
-          <div className="logo-wrapper">
-            <img src="/logo.png" alt="Brandora Logo" className="logo" />
+
+          <Image
+            src="/about-hero.jpg"
+            alt="Brandora Digital Agency"
+            fill
+            priority
+            className="hero-image"
+          />
+
+          <div className="hero-overlay"></div>
+
+          <div className="hero-content">
+            <h1 className="main-title">À Propos de Brandora</h1>
+
+            <p>
+              Une agence digitale ambitieuse dédiée à la création
+              d’expériences numériques puissantes, élégantes et orientées résultats.
+            </p>
           </div>
 
-          <h1 className="main-title">À Propos de Brandora</h1>
-
-          <p>
-            Une agence digitale ambitieuse dédiée à la création
-            d’expériences numériques puissantes, élégantes et orientées résultats.
-          </p>
         </div>
 
         {/* PRESENTATION */}
@@ -125,183 +137,190 @@ export default function AboutPage() {
       </section>
 
       <style jsx>{`
+
         .about-page {
-          padding: 100px 20px;
-          background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-          color: white;
+          background: linear-gradient(135deg,#0f0f0f,#1a1a1a);
+          color:white;
         }
 
         /* HERO */
-        .about-hero {
-          text-align: center;
-          max-width: 800px;
-          margin: 0 auto 80px auto;
+
+        .about-hero{
+          position:relative;
+          height:450px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          text-align:center;
+          overflow:hidden;
         }
 
-        /* LOGO STYLE UPGRADED TO PRO */
-        .logo-wrapper {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 30px;
-          border-radius: 50%;
-          background: radial-gradient(circle at 30% 30%, rgba(0,198,255,0.35), rgba(0,114,255,0.1));
-          box-shadow: 0 0 40px rgba(0,198,255,0.4), 0 0 80px rgba(0,114,255,0.25) inset;
-          margin-bottom: 30px;
-          transition: all 0.5s ease;
+        .hero-image{
+          object-fit:cover;
+          z-index:1;
         }
 
-        .logo-wrapper:hover {
-          transform: scale(1.1) rotate(2deg);
-          box-shadow: 0 0 90px rgba(0,198,255,0.6), 0 0 120px rgba(0,114,255,0.35) inset;
+        .hero-overlay{
+          position:absolute;
+          inset:0;
+          background:linear-gradient(
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.85)
+          );
+          z-index:2;
         }
 
-        .logo {
-          width: 140px;
-          filter: drop-shadow(0 0 15px rgba(0,198,255,0.7));
-          transition: all 0.5s ease;
+        .hero-content{
+          position:relative;
+          z-index:3;
+          max-width:750px;
+          padding:20px;
         }
 
-        /* TITLES */
-        .main-title {
-          font-size: 44px;
-          font-weight: 800;
-          margin-bottom: 20px;
-          background: linear-gradient(90deg, #00c6ff, #0072ff);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+        .main-title{
+          font-size:44px;
+          font-weight:800;
+          margin-bottom:20px;
+          background:linear-gradient(90deg,#00c6ff,#0072ff);
+          -webkit-background-clip:text;
+          -webkit-text-fill-color:transparent;
         }
 
-        .section-title {
-          font-size: 30px;
-          margin-bottom: 20px;
-          position: relative;
-          display: inline-block;
+        .hero-content p{
+          font-size:18px;
+          color:#d4d4d4;
+          line-height:1.7;
         }
 
-        .section-title::after {
-          content: "";
-          display: block;
-          width: 60%;
-          height: 3px;
-          margin: 10px auto 0;
-          background: linear-gradient(90deg, #00c6ff, #0072ff);
-          border-radius: 5px;
+        /* CONTENT */
+
+        .about-content{
+          max-width:900px;
+          margin:100px auto;
+          text-align:center;
+          padding:0 20px;
         }
 
-        .about-hero p,
-        .about-content p {
-          font-size: 17px;
-          color: #cfcfcf;
-          line-height: 1.8;
+        .section-title{
+          font-size:30px;
+          margin-bottom:20px;
         }
 
-        .about-content {
-          max-width: 900px;
-          margin: 0 auto 100px auto;
-          text-align: center;
+        .about-content p{
+          font-size:17px;
+          color:#cfcfcf;
+          line-height:1.8;
         }
 
-        .about-content span {
-          color: #00c6ff;
-          font-weight: bold;
+        .about-content span{
+          color:#00c6ff;
+          font-weight:bold;
         }
 
         /* WHY */
-        .why-section {
-          max-width: 1200px;
-          margin: 0 auto 100px auto;
-          text-align: center;
+
+        .why-section{
+          max-width:1200px;
+          margin:0 auto 100px auto;
+          text-align:center;
+          padding:0 20px;
         }
 
-        .why-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 30px;
-          margin-top: 40px;
+        .why-grid{
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+          gap:30px;
+          margin-top:40px;
         }
 
-        .why-card {
-          background: rgba(255,255,255,0.05);
-          padding: 30px;
-          border-radius: 20px;
-          transition: 0.4s;
+        .why-card{
+          background:rgba(255,255,255,0.05);
+          padding:30px;
+          border-radius:20px;
+          transition:.4s;
         }
 
-        .why-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 15px 40px rgba(0,198,255,0.25);
+        .why-card:hover{
+          transform:translateY(-8px);
+          box-shadow:0 15px 40px rgba(0,198,255,.25);
         }
 
-        .why-card i {
-          font-size: 28px;
-          margin-bottom: 15px;
-          color: #00c6ff;
+        .why-card i{
+          font-size:28px;
+          margin-bottom:15px;
+          color:#00c6ff;
         }
 
         /* CONTACT */
-        .contact-section {
-          text-align: center;
-          margin-bottom: 100px;
+
+        .contact-section{
+          text-align:center;
+          margin-bottom:100px;
+          padding:0 20px;
         }
 
-        .contact-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 25px;
-          margin-top: 40px;
+        .contact-grid{
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+          gap:25px;
+          margin-top:40px;
         }
 
-        .contact-card {
-          background: rgba(255,255,255,0.05);
-          padding: 25px;
-          border-radius: 15px;
-          text-decoration: none;
-          color: white;
-          transition: 0.3s;
+        .contact-card{
+          background:rgba(255,255,255,0.05);
+          padding:25px;
+          border-radius:15px;
+          text-decoration:none;
+          color:white;
+          transition:.3s;
         }
 
-        .contact-card:hover {
-          background: rgba(0,198,255,0.15);
-          transform: translateY(-5px);
+        .contact-card:hover{
+          background:rgba(0,198,255,0.15);
+          transform:translateY(-5px);
         }
 
-        .contact-card i {
-          font-size: 22px;
-          margin-bottom: 10px;
-          color: #00c6ff;
+        .contact-card i{
+          font-size:22px;
+          margin-bottom:10px;
+          color:#00c6ff;
         }
 
         /* PRIVACY */
-        .privacy-section {
-          text-align: center;
-          font-size: 14px;
-          color: #aaa;
+
+        .privacy-section{
+          text-align:center;
+          font-size:14px;
+          color:#aaa;
+          padding-bottom:80px;
         }
 
-        .privacy-section i {
-          margin-right: 8px;
-          color: #00c6ff;
+        .privacy-section i{
+          margin-right:8px;
+          color:#00c6ff;
         }
 
-        .privacy-section a {
-          color: #00c6ff;
-          text-decoration: none;
+        .privacy-section a{
+          color:#00c6ff;
+          text-decoration:none;
         }
 
-        @media (max-width: 768px) {
-          .main-title {
-            font-size: 32px;
+        @media(max-width:768px){
+
+          .about-hero{
+            height:360px;
           }
 
-          .logo-wrapper {
-            padding: 20px;
+          .main-title{
+            font-size:32px;
           }
 
-          .logo {
-            width: 110px;
+          .hero-content p{
+            font-size:16px;
           }
+
         }
+
       `}</style>
     </>
   );
