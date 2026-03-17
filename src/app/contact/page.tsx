@@ -7,7 +7,7 @@ import CallToActionSection from "../../components/CallToActionSection";
 export default function ContactPage() {
   return (
     <>
-    
+
       <section className="contact-page">
         
         {/* HERO */}

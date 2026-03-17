@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 import SEO from "../components/SEO";
 import "./globals.css";
+import Maintenance from "../components/Maintenance";
+
 
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -17,6 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
 
       <body>
+        {Maintenance ? <Maintenance /> : children}
         <Navbar />
         <main>{children}</main>
         <WhatsAppButton />

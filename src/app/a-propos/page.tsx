@@ -1,11 +1,32 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 export default function AboutPage() {
+
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+
+    const handleMouseMove = (e: { clientX: number; clientY: number; }) => {
+      const rect = hero.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      hero.style.setProperty("--mouse-x", `${x}px`);
+      hero.style.setProperty("--mouse-y", `${y}px`);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
     <>
-      {/* Font Awesome CDN */}
+
+      {/* Font Awesome */}
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -13,33 +34,45 @@ export default function AboutPage() {
 
       <section className="about-page">
 
-        {/* HERO IMAGE */}
-        <div className="about-hero">
+        {/* HERO */}
+        <div className="about-hero" ref={heroRef}>
 
-          <Image
-            src="/about-hero.jpg"
-            alt="Brandora Digital Agency"
-            fill
-            priority
-            className="hero-image"
-          />
+          {/* TOP BANNER */}
+          <div className="top-banner">
+            <div className="banner-text">
+              Besoin d’un site web ou d’une stratégie digitale ? Contactez-nous dès aujourd’hui !
+            </div>
+          </div>
 
-          <div className="hero-overlay"></div>
-
-          <div className="hero-content">
-            <h1 className="main-title">À Propos de Brandora</h1>
-
-            <p>
-              Une agence digitale ambitieuse dédiée à la création
-              d’expériences numériques puissantes, élégantes et orientées résultats.
-            </p>
+          {/* IMAGE */}
+          <div className="hero-image-wrapper">
+            <Image
+              src="/about-hero.png"
+              alt="Brandora Digital Agency"
+              fill
+              priority
+              className="hero-image"
+            />
+            <div className="hero-overlay"></div>
           </div>
 
         </div>
 
+        {/* HERO TEXT */}
+        <div className="hero-content">
+          <h1 className="main-title">À Propos de Brandora</h1>
+          <p>
+            Une agence digitale ambitieuse dédiée à la création
+            d’expériences numériques puissantes, élégantes et orientées résultats.
+          </p>
+        </div>
+
+
         {/* PRESENTATION */}
         <div className="about-content">
+
           <h2 className="section-title">Notre Mission</h2>
+
           <p>
             Chez <span>Brandora</span>, nous aidons les entreprises à
             construire une présence digitale solide et stratégique.
@@ -48,18 +81,23 @@ export default function AboutPage() {
           </p>
 
           <h2 className="section-title">Notre Vision</h2>
+
           <p>
             Devenir une référence digitale en Afrique et à l’international
             en offrant des solutions innovantes, performantes et centrées
             sur la valeur réelle pour nos clients.
           </p>
+
         </div>
 
-        {/* WHY SECTION */}
+
+        {/* WHY */}
         <div className="why-section">
+
           <h2 className="section-title">Pourquoi choisir Brandora ?</h2>
 
           <div className="why-grid">
+
             <div className="why-card">
               <i className="fas fa-rocket"></i>
               <h3>Innovation</h3>
@@ -83,11 +121,15 @@ export default function AboutPage() {
               <h3>Fiabilité</h3>
               <p>Transparence, engagement et respect des délais.</p>
             </div>
+
           </div>
+
         </div>
+
 
         {/* CONTACT */}
         <div className="contact-section">
+
           <h2 className="section-title">Contactez-nous</h2>
 
           <div className="contact-grid">
@@ -123,7 +165,9 @@ export default function AboutPage() {
             </a>
 
           </div>
+
         </div>
+
 
         {/* PRIVACY */}
         <div className="privacy-section">
@@ -136,10 +180,11 @@ export default function AboutPage() {
 
       </section>
 
+
       <style jsx>{`
 
-        .about-page {
-          background: linear-gradient(135deg,#0f0f0f,#1a1a1a);
+        .about-page{
+          background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
           color:white;
         }
 
@@ -147,33 +192,72 @@ export default function AboutPage() {
 
         .about-hero{
           position:relative;
-          height:450px;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          text-align:center;
+          height:500px;
           overflow:hidden;
+          border-radius:15px;
+          box-shadow:0 15px 50px rgba(0,0,0,.5);
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          padding-top:10px;
+
+          background: radial-gradient(
+            circle at var(--mouse-x,50%) var(--mouse-y,50%),
+            rgba(0,198,255,0.15),
+            rgba(0,0,0,0.6)
+          );
+        }
+
+        .hero-image-wrapper{
+          position:relative;
+          width:100%;
+          height:100%;
         }
 
         .hero-image{
           object-fit:cover;
-          z-index:1;
+          transition:transform .8s;
+        }
+
+        .about-hero:hover .hero-image{
+          transform:scale(1.05);
         }
 
         .hero-overlay{
           position:absolute;
           inset:0;
-          background:linear-gradient(
-            rgba(0,0,0,0.55),
-            rgba(0,0,0,0.85)
-          );
-          z-index:2;
+          background:radial-gradient(circle,rgba(255,255,255,.05),rgba(0,0,0,.6));
         }
 
-        .hero-content{
-          position:relative;
+        /* BANNER */
+
+        .top-banner{
+          width:90%;
+          overflow:hidden;
+          margin-bottom:15px;
+          border-radius:10px;
+          background:linear-gradient(90deg,#0072ff,#00c6ff);
+          padding:8px 0;
           z-index:3;
+        }
+
+        .banner-text{
+          white-space:nowrap;
+          font-size:14px;
+          animation:scrollText 18s linear infinite;
+        }
+
+        @keyframes scrollText{
+          0%{transform:translateX(100%)}
+          100%{transform:translateX(-100%)}
+        }
+
+        /* HERO TEXT */
+
+        .hero-content{
           max-width:750px;
+          margin:40px auto;
+          text-align:center;
           padding:20px;
         }
 
@@ -207,9 +291,9 @@ export default function AboutPage() {
         }
 
         .about-content p{
-          font-size:17px;
           color:#cfcfcf;
           line-height:1.8;
+          font-size:17px;
         }
 
         .about-content span{
@@ -234,7 +318,7 @@ export default function AboutPage() {
         }
 
         .why-card{
-          background:rgba(255,255,255,0.05);
+          background:rgba(255,255,255,.05);
           padding:30px;
           border-radius:20px;
           transition:.4s;
@@ -267,7 +351,7 @@ export default function AboutPage() {
         }
 
         .contact-card{
-          background:rgba(255,255,255,0.05);
+          background:rgba(255,255,255,.05);
           padding:25px;
           border-radius:15px;
           text-decoration:none;
@@ -276,7 +360,7 @@ export default function AboutPage() {
         }
 
         .contact-card:hover{
-          background:rgba(0,198,255,0.15);
+          background:rgba(0,198,255,.15);
           transform:translateY(-5px);
         }
 
@@ -308,7 +392,7 @@ export default function AboutPage() {
         @media(max-width:768px){
 
           .about-hero{
-            height:360px;
+            height:420px;
           }
 
           .main-title{
@@ -322,6 +406,7 @@ export default function AboutPage() {
         }
 
       `}</style>
+
     </>
   );
 }

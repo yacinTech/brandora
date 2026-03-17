@@ -80,14 +80,14 @@ export default function ServicesPage() {
           flex-direction: column;
           align-items: center;
           width: 100%;
-          padding: 50px 20px 70px;
+          padding: 50px 20px 80px;
           overflow: hidden;
         }
 
         .hero-background {
           position: absolute;
           inset: 0;
-          background: linear-gradient(135deg, #0f0f0f, #1a1a1a); /* خلفية داكنة جذابة */
+          background: radial-gradient(circle at center, #1a1a1a 0%, #0f0f0f 100%);
           z-index: 0;
         }
 
@@ -97,12 +97,15 @@ export default function ServicesPage() {
           max-width: 900px;
           aspect-ratio: 16/9;
           z-index: 1;
-          margin-bottom: 30px;
+          margin-bottom: 40px;
+          box-shadow: 0 20px 60px rgba(0,198,255,0.25), 0 0 80px rgba(0,198,255,0.1) inset; /* تأثير Glow */
+          border-radius: 20px;
           animation: float 6s ease-in-out infinite;
         }
 
         .hero-image {
           object-fit: contain; /* يحافظ على الشفافية ويظهر الصورة كاملة */
+          border-radius: 20px;
         }
 
         .hero-caption {
@@ -114,10 +117,13 @@ export default function ServicesPage() {
         }
 
         .hero-caption h1 {
-          font-size: 48px;
-          font-weight: 700;
+          font-size: 50px;
+          font-weight: 800;
           margin-bottom: 15px;
           line-height: 1.2;
+          background: linear-gradient(90deg, #00c6ff, #0072ff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
 
         .hero-caption p {
@@ -160,13 +166,13 @@ export default function ServicesPage() {
 
         .service-card:hover {
           transform: translateY(-10px);
-          border: 1px solid rgba(0, 198, 255, 0.6);
-          box-shadow: 0 15px 40px rgba(0, 198, 255, 0.2);
+          border: 1px solid rgba(0,198,255,0.6);
+          box-shadow: 0 15px 40px rgba(0,198,255,0.2);
         }
 
         .service-card.highlight {
-          border: 1px solid rgba(0, 198, 255, 0.6);
-          box-shadow: 0 10px 30px rgba(0, 198, 255, 0.15);
+          border: 1px solid rgba(0,198,255,0.6);
+          box-shadow: 0 10px 30px rgba(0,198,255,0.15);
         }
 
         .icon {
