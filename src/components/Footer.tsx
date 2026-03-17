@@ -38,7 +38,7 @@ export default function Footer() {
         {/* ---------- Contact ---------- */}
         <div className="footer-section">
           <h4>Contact</h4>
-          <p>Email: elynor.contact@gmail.com</p>
+          <p>Email: info@brandora.fun</p>
           <p>Téléphone: +212625902672</p>
           <div className="social-icons">
             <a href="https://www.facebook.com/branddorra/" target="_blank" rel="noreferrer">

@@ -45,7 +45,7 @@ export default function SocialContact() {
           </a>
 
           <a
-            href="mailto:elynor.contact@gmail.com"
+            href="mailto:info@brandora.fun"
             className="social-card"
           >
             <i className="fas fa-envelope"></i>
