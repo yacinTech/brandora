@@ -11,7 +11,7 @@ import HeroSection from "../components/HeroSection";
 import ServicesSection from "../components/ServicesSection";
 import CallToActionSection from "@/src/components/CallToActionSection";
 import SocialContact from "@/src/components/SocialContact";
-import LiquifyLens from "../components/LiquifyLens/LiquifyLens";
+
 
 
 export default function HomePage() {
