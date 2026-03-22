@@ -35,6 +35,7 @@ export default function HeroSection() {
           overflow: hidden;
           padding-bottom: 40px; /* ⬅️ مسافة إضافية من الأسفل */
         }
+          
 
         .hero-video {
           position: absolute;

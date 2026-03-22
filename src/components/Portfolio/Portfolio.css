@@ -1,0 +1,100 @@
+.portfolio-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.portfolio-title {
+  font-size: 36px;
+  color: #00c3ff;
+  margin-bottom: 10px;
+}
+
+.portfolio-subtitle {
+  color: #aaa;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.portfolio-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 195, 255, 0.3);
+}
+
+/* Portfolio Image Container */
+.portfolio-image {
+  overflow: hidden;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: auto; /* تغيير من ارتفاع ثابت إلى تلقائي */
+  object-fit: cover; /* يحافظ على تغطية البطاقة بالكامل */
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* عند Hover */
+.portfolio-card:hover .portfolio-image img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .portfolio-image img {
+    height: auto; /* السماح للصور بالتحجيم التلقائي */
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .portfolio-image img {
+    width: 100%;
+    height: auto; /* الصور تتكيف بالكامل مع عرض البطاقة */
+  }
+}
+/* زر "Voir le site" احترافي */
+.view-button {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #00c3ff, #0072ff); /* تدرج أزرق جذاب */
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.view-button:hover {
+  transform: translateY(-3px) scale(1.05); /* حركة خفيفة عند المرور */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #0072ff, #00c3ff); /* تبديل الألوان عند المرور */
+}
+
+.view-button:active {
+  transform: translateY(0px) scale(0.98); /* تأثير الضغط على الزر */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

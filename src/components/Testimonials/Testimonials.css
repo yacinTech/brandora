@@ -1,0 +1,108 @@
+/* ---------- Section ---------- */
+.testimonials {
+  padding: 100px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+/* ---------- Container ---------- */
+.testimonials-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ---------- Title ---------- */
+.testimonials-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.testimonials-subtitle {
+  color: #bbb;
+  margin-bottom: 60px;
+}
+
+/* ---------- Grid (تصميم إبداعي) ---------- */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* ---------- Card ---------- */
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  transition: 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #00c3ff;
+  box-shadow: 0 15px 40px rgba(0,195,255,0.25);
+}
+
+/* ---------- Gender colors subtle ---------- */
+.testimonial-card.female {
+  border-left: 3px solid #ff7eb3;
+}
+
+.testimonial-card.male {
+  border-left: 3px solid #00c3ff;
+}
+
+/* ---------- Quote icon ---------- */
+.quote-icon {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #00c3ff;
+}
+
+/* ---------- Stars ---------- */
+.stars {
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+.stars i {
+  margin: 0 2px;
+}
+
+/* ---------- Text ---------- */
+.text-fr {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-bottom: 10px;
+}
+
+.text-en {
+  font-size: 0.85rem;
+  color: #aaa;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+/* ---------- Client ---------- */
+.client {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.avatar {
+  font-size: 1.5rem;
+  color: #00c3ff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .testimonials-title {
+    font-size: 2rem;
+  }
+}

@@ -124,7 +124,7 @@ export default function SEO() {
             },
             sameAs: [
               "https://www.facebook.com/brandora",
-              "https://www.instagram.com/brandora",
+              "https://www.instagram.com/brandora1",
               "https://www.linkedin.com/company/brandora",
             ],
           }),

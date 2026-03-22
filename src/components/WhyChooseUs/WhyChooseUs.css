@@ -1,0 +1,65 @@
+.why {
+  padding: 100px 20px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.why-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.why-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.why-subtitle {
+  max-width: 600px;
+  margin: 0 auto 60px;
+  color: #bbb;
+  line-height: 1.6;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.why-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-10px);
+  border-color: #00c3ff;
+  box-shadow: 0 10px 30px rgba(0, 195, 255, 0.2);
+}
+
+/* 🔥 أيقونات احترافية */
+.why-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #00c3ff;
+}
+
+.why-card h3 {
+  margin-bottom: 10px;
+  color: #00c3ff;
+}
+
+.why-card p {
+  color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .why-title {
+    font-size: 2rem;
+  }
+}

@@ -134,9 +134,9 @@ export default function AboutPage() {
 
           <div className="contact-grid">
 
-            <a href="mailto:elynor.contact@gmail.com" className="contact-card">
+            <a href="mailto:info@brandora.site" className="contact-card">
               <i className="fas fa-envelope"></i>
-              <p>elynor.contact@gmail.com</p>
+              <p>info@brandora.site</p>
             </a>
 
             <a href="tel:+212625902672" className="contact-card">
