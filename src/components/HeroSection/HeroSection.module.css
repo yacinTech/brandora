@@ -1,0 +1,240 @@
+.main { width: 100%; }
+
+.bannerSection {
+  padding: 6rem 1rem 1rem;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a); /* تغيير اللون */
+}
+
+.bannerColumn {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+}
+
+/* ===== Slider Container ===== */
+.sliderContainer {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#0f0f0f, #1a1a1a) padding-box, /* تعديل اللون */
+    linear-gradient(135deg, #00c6ff, #0072ff) border-box; /* إطار السلايدر بلون متناسق */
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.6),
+    0 0 15px rgba(0, 198, 255, 0.25),
+    0 0 30px rgba(0, 198, 255, 0.15);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== منطقة الفيديو ===== */
+.mediaWrapper {
+  position: relative;
+  width: 100%;
+  height: 16rem;
+}
+
+/* كل Slide */
+.slide {
+  display: none;
+  position: absolute;
+  inset: 0;
+}
+
+.activeSlide {
+  display: block;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* الفيديو والصورة */
+.bannerVideo,
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* خلفية للفيديو */
+.bannerVideo {
+  background-image: url('/images/cuisines/video-bg.jpg');
+}
+
+/* ===== الأسهم ===== */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,198,255,0.1); /* تعديل اللون */
+  border: none;
+  font-size: 1.5rem;
+  color: #00c6ff; /* تعديل اللون */
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 10;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0,198,255,0.25);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev { left: 0.5rem; }
+.next { right: 0.5rem; }
+
+/* ===== شريط المصغرات ===== */
+.thumbnailBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+
+  padding: 0.5rem 0.6rem;
+  margin: 0.4rem auto;
+
+  width: fit-content;
+  max-width: 95%;
+
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+  background: rgba(15, 15, 26, 0.6); /* تعديل اللون */
+  backdrop-filter: blur(10px);
+
+  border-radius: 0.8rem;
+
+  box-shadow:
+    inset 0 0 10px rgba(0,198,255,0.08),
+    0 0 12px rgba(0,198,255,0.15);
+
+  scroll-snap-type: x mandatory;
+}
+
+.thumbnailBar::-webkit-scrollbar {
+  display: none;
+}
+
+.thumbnail {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+
+  width: 3.2rem;
+  height: 2rem;
+
+  object-fit: cover;
+  border-radius: 0.6rem;
+
+  border: 2px solid transparent;
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  opacity: 0.7;
+}
+
+.thumbnail:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.activeThumb {
+  border: 2px solid #00c6ff; /* تعديل لون الإطار */
+  box-shadow:
+    0 0 12px rgba(0,198,255,0.7),
+    0 0 20px rgba(0,198,255,0.4);
+
+  transform: scale(1.12);
+  opacity: 1;
+}
+
+/* ===== النصوص ===== */
+.bannerInner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.titleLarge {
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  background: linear-gradient(90deg, #00c6ff, #0072ff); /* تعديل اللون */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.textBase {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  color: #e5e7eb; /* نصوص فاتحة تتناسب مع الخلفية الداكنة */
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btnPrimary {
+  background: #00c6ff; /* زر رئيسي متناسق مع السمة */
+  color: #0f0f0f;
+  text-decoration: none;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: rgba(0,198,255,0.9);
+  box-shadow: 0 0 12px rgba(0,198,255,0.4);
+}
+
+/* ===== السوشيال ===== */
+.bannerLink {
+  position: absolute;
+  top: 30%;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  visibility: hidden;
+}
+
+.bannerLink a {
+  font-size: 1.2rem;
+  color: #e5e7eb;
+  transition: 0.3s ease;
+}
+
+.bannerLink a:hover {
+  color: #00c6ff;
+  transform: scale(1.15);
+}
+
+/* ===== Responsive ===== */
+@media (min-width: 768px) {
+  .bannerColumn {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+  }
+  .bannerInner { text-align: left; }
+}
+
+@media (max-width: 768px) {
+  .bannerSection { padding-top: 3rem; padding-bottom: 0.5rem; }
+  .titleLarge { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+}
+
+@media (min-width: 1024px) {
+  .bannerLink { visibility: visible; }
+}

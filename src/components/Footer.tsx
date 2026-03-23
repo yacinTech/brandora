@@ -9,23 +9,20 @@ export default function Footer() {
 
         {/* ---------- About ---------- */}
         <div className="footer-section about-section">
-          
           <div className="brand-header">
             <div className="footer-logo-wrapper">
               <img src="/logo.png" alt="Brandora Logo" className="footer-logo" />
             </div>
             <h3 className="brand-name">Brandora</h3>
           </div>
-
           <p className="brand-description">
             Nous créons des solutions digitales modernes et performantes pour
             aider votre entreprise à se développer en ligne.
           </p>
-
         </div>
 
-        {/* ---------- Links ---------- */}
-        <div className="footer-section">
+        {/* ---------- Useful Links ---------- */}
+        <div className="footer-section links-section">
           <h4>Liens utiles</h4>
           <ul>
             <li><a href="/">Accueil</a></li>
@@ -36,7 +33,7 @@ export default function Footer() {
         </div>
 
         {/* ---------- Contact ---------- */}
-        <div className="footer-section">
+        <div className="footer-section contact-section">
           <h4>Contact</h4>
           <p>Email: info@brandora.fun</p>
           <p>Téléphone: +212625902672</p>
@@ -59,7 +56,6 @@ export default function Footer() {
         &copy; {new Date().getFullYear()} Brandora. Tous droits réservés.
       </div>
 
-      {/* ---------- Styles ---------- */}
       <style jsx>{`
         .footer {
           background: linear-gradient(180deg, #0f0f0f, #000);
@@ -81,8 +77,7 @@ export default function Footer() {
           min-width: 250px;
         }
 
-        /* ===== Brand Section ===== */
-
+        /* Brand Section */
         .about-section {
           max-width: 350px;
         }
@@ -134,35 +129,56 @@ export default function Footer() {
           font-size: 15px;
         }
 
-        /* ===== Links ===== */
-
-        .footer-section h4 {
+        /* Links Section */
+        .links-section h4 {
           color: #00c3ff;
           margin-bottom: 15px;
         }
 
-        .footer-section ul {
+        .links-section ul {
           list-style: none;
           padding: 0;
+          margin: 0;
         }
 
-        .footer-section ul li {
+        .links-section ul li {
           margin-bottom: 8px;
         }
 
-        .footer-section ul li a {
+        .links-section ul li a {
           color: #bbb;
-          transition: all 0.3s ease;
+          text-decoration: none; /* إزالة الخط الافتراضي */
+          position: relative;
+          display: inline-block;
+          transition: 0.3s ease;
         }
 
-        .footer-section ul li a:hover {
+        .links-section ul li a::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -2px;
+          width: 0%;
+          height: 2px;
+          background: #00c3ff;
+          transition: 0.3s ease;
+        }
+
+        .links-section ul li a:hover::after {
+          width: 100%; /* خط أسفل الرابط عند الهور */
+        }
+
+        .links-section ul li a:hover {
+          color: #fff;
+        }
+
+        /* Contact Section */
+        .contact-section h4 {
           color: #00c3ff;
-          padding-left: 5px;
+          margin-bottom: 15px;
         }
 
-        /* ===== Contact ===== */
-
-        .footer-section p {
+        .contact-section p {
           color: #ddd;
           margin-bottom: 8px;
         }
@@ -190,8 +206,7 @@ export default function Footer() {
           transform: translateY(-4px) scale(1.1);
         }
 
-        /* ===== Bottom ===== */
-
+        /* Footer Bottom */
         .footer-bottom {
           text-align: center;
           font-size: 14px;
@@ -200,8 +215,7 @@ export default function Footer() {
           padding-top: 20px;
         }
 
-        /* ===== Responsive ===== */
-
+        /* Responsive */
         @media (max-width: 768px) {
           .footer-container {
             flex-direction: column;

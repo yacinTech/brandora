@@ -7,7 +7,7 @@ import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
 import Testimonials from "../components/Testimonials/Testimonials";
 import ContactForm from "../components/ContactForm";
 import SiteTypes from "../components/SiteTypes";
-import HeroSection from "../components/HeroSection";
+import HeroSection from "../components/HeroSection/HeroSection";
 import ServicesSection from "../components/ServicesSection";
 import CallToActionSection from "@/src/components/CallToActionSection";
 import SocialContact from "@/src/components/SocialContact";
@@ -20,7 +20,10 @@ export default function HomePage() {
   return (
     <>
 
-     <HeroSection />
+    <main style={{ margin: 0, padding: 0 }}>
+      <HeroSection />
+     
+   
      <ServicesSection />
       <WhyChooseUs />
       <SiteTypes />
@@ -28,6 +31,7 @@ export default function HomePage() {
       <CallToActionSection />
       <ContactForm />
       <SocialContact />
+       </main>
       
 
       

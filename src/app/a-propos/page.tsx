@@ -1,412 +1,257 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { FaLinkedin, FaTwitter, FaGithub, FaProjectDiagram, FaSmile, FaClock, FaUsers } from "react-icons/fa";
 
-export default function AboutPage() {
+export default function AboutAgency() {
+  // المدير فقط
+  const manager = {
+    name: "Yassine El Maataoui",
+    role: "Fondateur & CEO",
+    img: "/team1.jpg",
+    bio: "Yassine est le fondateur de Brandora, passionné par le développement web et les solutions digitales innovantes. Il guide l'agence avec vision, créativité et expertise technique.",
+    portfolio: "https://www.yassinelmaataouiportfolio.online/",
+    github: "https://github.com/yacinTech",
+    linkedin: "https://www.linkedin.com/in/yassine-el-maataoui-7b029536a",
+    twitter: "https://x.com/elmaataouiyacin?s=21"
+  };
 
-  const heroRef = useRef<HTMLDivElement>(null);
+  // الخبرة
+  const expertiseItems = [
+    { title: "Développement Web", desc: "Sites web et applications sur mesure, rapides et performants." },
+    { title: "Marketing Digital", desc: "Stratégies efficaces pour accroître votre visibilité en ligne." },
+    { title: "SEO & Référencement", desc: "Optimisation pour atteindre le top des recherches Google." },
+    { title: "Branding & Design", desc: "Identité visuelle forte et cohérente pour votre marque." },
+  ];
+
+  // الإحصائيات
+  const statsData = [
+    { icon: <FaProjectDiagram />, number: 150, label: "Projets Réalisés" },
+    { icon: <FaSmile />, number: 100, label: "Clients Satisfaits" },
+    { icon: <FaClock />, number: 8, label: "Années d'Expérience" },
+    { icon: <FaUsers />, number: 25, label: "Experts dans l'équipe" },
+  ];
+
+  // Counter logic
+  const [countStarted, setCountStarted] = useState(false);
+  const statsRef = useRef(null);
+  const [counts, setCounts] = useState(statsData.map(() => 0));
 
   useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCountStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (statsRef.current) observer.observe(statsRef.current);
+  }, []);
 
-    const handleMouseMove = (e: { clientX: number; clientY: number; }) => {
-      const rect = hero.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      hero.style.setProperty("--mouse-x", `${x}px`);
-      hero.style.setProperty("--mouse-y", `${y}px`);
-    };
+  useEffect(() => {
+    if (!countStarted) return;
+    const interval = setInterval(() => {
+      setCounts((prev) =>
+        prev.map((val, i) =>
+          val < statsData[i].number ? val + Math.ceil(statsData[i].number / 100) : statsData[i].number
+        )
+      );
+    }, 20);
+    return () => clearInterval(interval);
+  }, [countStarted]);
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+  // توليد الدوائر بعد تحميل الصفحة لتجنب Hydration Mismatch
+  const [circles, setCircles] = useState<Array<{ width: number; height: number; top: number; left: number; animation: string }>>([]);
+  useEffect(() => {
+    setCircles([...Array(8)].map((_, i) => ({
+      width: 50 + i * 20,
+      height: 50 + i * 20,
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      animation: `float${i} ${20 + i * 5}s ease-in-out infinite`
+    })));
   }, []);
 
   return (
-    <>
+    <main style={{ fontFamily: "'Inter', sans-serif", color: "#fff", backgroundColor: "#0a0a0a" }}>
 
-      {/* Font Awesome */}
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      />
-
-      <section className="about-page">
-
-        {/* HERO */}
-        <div className="about-hero" ref={heroRef}>
-
-          {/* TOP BANNER */}
-          <div className="top-banner">
-            <div className="banner-text">
-              Besoin d’un site web ou d’une stratégie digitale ? Contactez-nous dès aujourd’hui !
-            </div>
-          </div>
-
-          {/* IMAGE */}
-          <div className="hero-image-wrapper">
-            <Image
-              src="/about-hero.png"
-              alt="Brandora Digital Agency"
-              fill
-              priority
-              className="hero-image"
-            />
-            <div className="hero-overlay"></div>
-          </div>
-
-        </div>
-
-        {/* HERO TEXT */}
-        <div className="hero-content">
-          <h1 className="main-title">À Propos de Brandora</h1>
-          <p>
-            Une agence digitale ambitieuse dédiée à la création
-            d’expériences numériques puissantes, élégantes et orientées résultats.
+      {/* ---------- Hero Section ---------- */}
+      <section style={{
+        position: "relative",
+        minHeight: "70vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        padding: "0 20px",
+        background: "linear-gradient(135deg, #6a11cb, #2575fc)",
+        overflow: "hidden"
+      }}>
+        <div style={{ zIndex: 2, maxWidth: "900px" }}>
+          <h1 style={{
+            fontSize: "clamp(32px, 6vw, 56px)",
+            marginBottom: "15px",
+            fontWeight: "bold",
+            lineHeight: "1.2",
+            textShadow: "0 5px 20px rgba(0,0,0,0.5)"
+          }}>
+            Bienvenue chez Brandora
+          </h1>
+          <p style={{
+            fontSize: "clamp(16px, 3vw, 22px)",
+            opacity: 0.9,
+            margin: "0 auto 25px",
+            lineHeight: "1.5"
+          }}>
+            Nous transformons vos idées en solutions digitales modernes et performantes.
           </p>
+          <a href="/contact" style={{
+            display: "inline-block",
+            padding: "15px 40px",
+            backgroundColor: "#00c3ff",
+            color: "#fff",
+            fontWeight: "bold",
+            borderRadius: "8px",
+            textDecoration: "none",
+            transition: "all 0.3s"
+          }}
+            onMouseEnter={e => {
+              e.currentTarget.style.backgroundColor = "#fff";
+              e.currentTarget.style.color = "#00c3ff";
+              e.currentTarget.style.transform = "scale(1.05)";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.backgroundColor = "#00c3ff";
+              e.currentTarget.style.color = "#fff";
+              e.currentTarget.style.transform = "scale(1)";
+            }}>
+            Nous Contacter
+          </a>
         </div>
 
-
-        {/* PRESENTATION */}
-        <div className="about-content">
-
-          <h2 className="section-title">Notre Mission</h2>
-
-          <p>
-            Chez <span>Brandora</span>, nous aidons les entreprises à
-            construire une présence digitale solide et stratégique.
-            Nous combinons design moderne, performance technique
-            et vision marketing pour transformer vos idées en succès mesurable.
-          </p>
-
-          <h2 className="section-title">Notre Vision</h2>
-
-          <p>
-            Devenir une référence digitale en Afrique et à l’international
-            en offrant des solutions innovantes, performantes et centrées
-            sur la valeur réelle pour nos clients.
-          </p>
-
+        {/* Animated circles */}
+        <div style={{ position: "absolute", inset: 0, overflow: "hidden", zIndex: 1 }}>
+          {circles.map((circle, i) => (
+            <div key={i} style={{
+              position: "absolute",
+              width: `${circle.width}px`,
+              height: `${circle.height}px`,
+              borderRadius: "50%",
+              background: "rgba(255,255,255,0.05)",
+              top: `${circle.top}%`,
+              left: `${circle.left}%`,
+              animation: circle.animation
+            }} />
+          ))}
         </div>
-
-
-        {/* WHY */}
-        <div className="why-section">
-
-          <h2 className="section-title">Pourquoi choisir Brandora ?</h2>
-
-          <div className="why-grid">
-
-            <div className="why-card">
-              <i className="fas fa-rocket"></i>
-              <h3>Innovation</h3>
-              <p>Solutions modernes et technologies performantes.</p>
-            </div>
-
-            <div className="why-card">
-              <i className="fas fa-chart-line"></i>
-              <h3>Résultats</h3>
-              <p>Stratégies orientées croissance et conversion.</p>
-            </div>
-
-            <div className="why-card">
-              <i className="fas fa-handshake"></i>
-              <h3>Partenariat</h3>
-              <p>Accompagnement continu et relation de confiance.</p>
-            </div>
-
-            <div className="why-card">
-              <i className="fas fa-shield-halved"></i>
-              <h3>Fiabilité</h3>
-              <p>Transparence, engagement et respect des délais.</p>
-            </div>
-
-          </div>
-
-        </div>
-
-
-        {/* CONTACT */}
-        <div className="contact-section">
-
-          <h2 className="section-title">Contactez-nous</h2>
-
-          <div className="contact-grid">
-
-            <a href="mailto:info@brandora.site" className="contact-card">
-              <i className="fas fa-envelope"></i>
-              <p>info@brandora.site</p>
-            </a>
-
-            <a href="tel:+212625902672" className="contact-card">
-              <i className="fas fa-phone"></i>
-              <p>+212 6 25 90 26 72</p>
-            </a>
-
-            <a
-              href="https://wa.me/212625902672"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-card"
-            >
-              <i className="fab fa-whatsapp"></i>
-              <p>WhatsApp Business</p>
-            </a>
-
-            <a
-              href="https://instagram.com/brandorra1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-card"
-            >
-              <i className="fab fa-instagram"></i>
-              <p>@brandora</p>
-            </a>
-
-          </div>
-
-        </div>
-
-
-        {/* PRIVACY */}
-        <div className="privacy-section">
-          <i className="fas fa-lock"></i>
-          <p>
-            Nous respectons votre vie privée.
-            Consultez notre <a href="/privacy">Politique de confidentialité</a>.
-          </p>
-        </div>
-
+        <style>{`
+          ${[...Array(8)].map((_, i) => `
+            @keyframes float${i} {
+              0% { transform: translateY(0) translateX(0); }
+              50% { transform: translateY(-${10 + i*5}px) translateX(${5 + i*3}px); }
+              100% { transform: translateY(0) translateX(0); }
+            }
+          `).join('')}
+        `}</style>
       </section>
 
+      {/* ---------- Who We Are ---------- */}
+      <section style={{ padding: "60px 20px", textAlign: "center", backgroundColor: "#111" }}>
+        <h2 style={{ fontSize: "clamp(28px, 5vw, 36px)", marginBottom: "25px", color: "#00c3ff" }}>Qui sommes-nous ?</h2>
+        <p style={{ maxWidth: "900px", margin: "0 auto", color: "#ccc", fontSize: "clamp(14px, 2.5vw, 16px)" }}>
+          Brandora est une agence digitale innovante, spécialisée dans la création de sites web, 
+          le marketing digital, et les solutions sur mesure pour les entreprises ambitieuses. 
+          Nous combinons créativité, technologie et stratégie pour générer des résultats concrets et durables.
+        </p>
+      </section>
 
-      <style jsx>{`
+      {/* ---------- Stats with Animated Counters ---------- */}
+      <section ref={statsRef} style={{
+        display: "flex",
+        justifyContent: "center",
+        flexWrap: "wrap",
+        gap: "40px",
+        padding: "60px 20px",
+        backgroundColor: "#0a0a0a",
+      }}>
+        {statsData.map((stat, i) => (
+          <div key={i} style={{
+            textAlign: "center",
+            minWidth: "160px",
+            background: "rgba(255,255,255,0.05)",
+            borderRadius: "15px",
+            padding: "25px",
+            border: "1px solid rgba(255,255,255,0.1)",
+            transition: "transform 0.4s, box-shadow 0.4s",
+            cursor: "default",
+          }}
+            onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-10px)"; e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,195,255,0.3)"; }}
+            onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
+            <div style={{ fontSize: "32px", color: "#00c3ff", marginBottom: "15px" }}>{stat.icon}</div>
+            <h3 style={{ fontSize: "28px", color: "#00c3ff", marginBottom: "5px" }}>{counts[i]}{stat.number > 99 ? "+" : ""}</h3>
+            <p style={{ color: "#bbb", fontSize: "14px" }}>{stat.label}</p>
+          </div>
+        ))}
+      </section>
 
-        .about-page{
-          background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
-          color:white;
-        }
+      {/* ---------- Expertise ---------- */}
+      <section style={{ padding: "60px 20px", backgroundColor: "#111", textAlign: "center" }}>
+        <h2 style={{ fontSize: "clamp(28px, 5vw, 36px)", marginBottom: "50px", color: "#00c3ff" }}>Nos Domaines d'Expertise</h2>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+          gap: "30px",
+          maxWidth: "1200px",
+          margin: "0 auto"
+        }}>
+          {expertiseItems.map((item, i) => (
+            <div key={i} style={{
+              background: "rgba(255,255,255,0.05)",
+              padding: "25px",
+              borderRadius: "15px",
+              border: "1px solid rgba(255,255,255,0.1)",
+              transition: "transform 0.4s, box-shadow 0.4s",
+              cursor: "default"
+            }}
+              onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-10px)"; e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,195,255,0.3)"; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
+              <h3 style={{ color: "#00c3ff", marginBottom: "10px" }}>{item.title}</h3>
+              <p style={{ color: "#ccc", fontSize: "14px" }}>{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        /* HERO */
+      {/* ---------- Manager Section ---------- */}
+      <section style={{ padding: "60px 20px", backgroundColor: "#0a0a0a", textAlign: "center" }}>
+        <h2 style={{ fontSize: "clamp(28px, 5vw, 36px)", marginBottom: "50px", color: "#00c3ff" }}>Notre Directeur</h2>
+        <div style={{
+          maxWidth: "400px",
+          margin: "0 auto",
+          background: "rgba(255,255,255,0.05)",
+          borderRadius: "20px",
+          padding: "30px",
+          border: "1px solid rgba(255,255,255,0.1)",
+          backdropFilter: "blur(12px)",
+          textAlign: "center"
+        }}>
+          <div style={{ width: "150px", height: "150px", margin: "0 auto 20px", borderRadius: "50%", overflow: "hidden", border: "3px solid #00c3ff" }}>
+            <img src={manager.img} alt={manager.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+          <h3 style={{ fontSize: "24px", marginBottom: "5px" }}>{manager.name}</h3>
+          <p style={{ fontSize: "16px", color: "#bbb", marginBottom: "15px" }}>{manager.role}</p>
+          <p style={{ fontSize: "14px", color: "#ccc", lineHeight: "1.5" }}>{manager.bio}</p>
+         <div style={{ display: "flex", justifyContent: "center", gap: "20px", marginTop: "15px" }}>
+  <a href={manager.portfolio} target="_blank" style={{ color: "#fff", fontSize: "24px" }} title="Portfolio"><FaProjectDiagram /></a>
+  <a href={manager.github} target="_blank" style={{ color: "#fff", fontSize: "24px" }} title="GitHub"><FaGithub /></a>
+  <a href={manager.linkedin} target="_blank" style={{ color: "#fff", fontSize: "24px" }} title="LinkedIn"><FaLinkedin /></a>
+  <a href={manager.twitter} target="_blank" style={{ color: "#fff", fontSize: "24px" }} title="Twitter"><FaTwitter /></a>
+</div>
+        </div>
+      </section>
 
-        .about-hero{
-          position:relative;
-          height:500px;
-          overflow:hidden;
-          border-radius:15px;
-          box-shadow:0 15px 50px rgba(0,0,0,.5);
-          display:flex;
-          flex-direction:column;
-          align-items:center;
-          padding-top:10px;
-
-          background: radial-gradient(
-            circle at var(--mouse-x,50%) var(--mouse-y,50%),
-            rgba(0,198,255,0.15),
-            rgba(0,0,0,0.6)
-          );
-        }
-
-        .hero-image-wrapper{
-          position:relative;
-          width:100%;
-          height:100%;
-        }
-
-        .hero-image{
-          object-fit:cover;
-          transition:transform .8s;
-        }
-
-        .about-hero:hover .hero-image{
-          transform:scale(1.05);
-        }
-
-        .hero-overlay{
-          position:absolute;
-          inset:0;
-          background:radial-gradient(circle,rgba(255,255,255,.05),rgba(0,0,0,.6));
-        }
-
-        /* BANNER */
-
-        .top-banner{
-          width:90%;
-          overflow:hidden;
-          margin-bottom:15px;
-          border-radius:10px;
-          background:linear-gradient(90deg,#0072ff,#00c6ff);
-          padding:8px 0;
-          z-index:3;
-        }
-
-        .banner-text{
-          white-space:nowrap;
-          font-size:14px;
-          animation:scrollText 18s linear infinite;
-        }
-
-        @keyframes scrollText{
-          0%{transform:translateX(100%)}
-          100%{transform:translateX(-100%)}
-        }
-
-        /* HERO TEXT */
-
-        .hero-content{
-          max-width:750px;
-          margin:40px auto;
-          text-align:center;
-          padding:20px;
-        }
-
-        .main-title{
-          font-size:44px;
-          font-weight:800;
-          margin-bottom:20px;
-          background:linear-gradient(90deg,#00c6ff,#0072ff);
-          -webkit-background-clip:text;
-          -webkit-text-fill-color:transparent;
-        }
-
-        .hero-content p{
-          font-size:18px;
-          color:#d4d4d4;
-          line-height:1.7;
-        }
-
-        /* CONTENT */
-
-        .about-content{
-          max-width:900px;
-          margin:100px auto;
-          text-align:center;
-          padding:0 20px;
-        }
-
-        .section-title{
-          font-size:30px;
-          margin-bottom:20px;
-        }
-
-        .about-content p{
-          color:#cfcfcf;
-          line-height:1.8;
-          font-size:17px;
-        }
-
-        .about-content span{
-          color:#00c6ff;
-          font-weight:bold;
-        }
-
-        /* WHY */
-
-        .why-section{
-          max-width:1200px;
-          margin:0 auto 100px auto;
-          text-align:center;
-          padding:0 20px;
-        }
-
-        .why-grid{
-          display:grid;
-          grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-          gap:30px;
-          margin-top:40px;
-        }
-
-        .why-card{
-          background:rgba(255,255,255,.05);
-          padding:30px;
-          border-radius:20px;
-          transition:.4s;
-        }
-
-        .why-card:hover{
-          transform:translateY(-8px);
-          box-shadow:0 15px 40px rgba(0,198,255,.25);
-        }
-
-        .why-card i{
-          font-size:28px;
-          margin-bottom:15px;
-          color:#00c6ff;
-        }
-
-        /* CONTACT */
-
-        .contact-section{
-          text-align:center;
-          margin-bottom:100px;
-          padding:0 20px;
-        }
-
-        .contact-grid{
-          display:grid;
-          grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-          gap:25px;
-          margin-top:40px;
-        }
-
-        .contact-card{
-          background:rgba(255,255,255,.05);
-          padding:25px;
-          border-radius:15px;
-          text-decoration:none;
-          color:white;
-          transition:.3s;
-        }
-
-        .contact-card:hover{
-          background:rgba(0,198,255,.15);
-          transform:translateY(-5px);
-        }
-
-        .contact-card i{
-          font-size:22px;
-          margin-bottom:10px;
-          color:#00c6ff;
-        }
-
-        /* PRIVACY */
-
-        .privacy-section{
-          text-align:center;
-          font-size:14px;
-          color:#aaa;
-          padding-bottom:80px;
-        }
-
-        .privacy-section i{
-          margin-right:8px;
-          color:#00c6ff;
-        }
-
-        .privacy-section a{
-          color:#00c6ff;
-          text-decoration:none;
-        }
-
-        @media(max-width:768px){
-
-          .about-hero{
-            height:420px;
-          }
-
-          .main-title{
-            font-size:32px;
-          }
-
-          .hero-content p{
-            font-size:16px;
-          }
-
-        }
-
-      `}</style>
-
-    </>
+    </main>
   );
 }

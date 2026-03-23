@@ -1,29 +1,121 @@
-
-
-body {
+/* --- Reset أساسي --- */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;   /* يمنع أي scroll أفقي */
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
-  /* background-color: #f5f5f5;  حذف اللون الثابت */
-  
-  /* إضافة Gradient موحد */
-  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-  
-  color: #fff; /* نصوص بيضاء لتتناسب مع الخلفية الداكنة */
-  min-height: 100vh;
+  color: #fff;          /* نصوص بيضاء */
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a); /* الخلفية الداكنة */
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* تطبيق box-sizing على كل العناصر */
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-main {
+/* --- الحاويات العامة --- */
+.container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 15px;
+}
 
-  margin-top: 80px; /* 🔥 هذا هو الحل */
+/* --- الصور والفيديو --- */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- عناصر الفيديو Hero --- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;      /* ملء الشاشة بالكامل */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a); /* الخلفية الداكنة خلف الفيديو */
+}
+
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* يملأ العنصر بالكامل ويحافظ على العرض */
+  display: block;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  z-index: 1;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  padding: 12px 24px;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.35);
+  border-radius: 12px;
+  z-index: 2;
+  max-width: 90%;
+  font-size: clamp(14px, 3vw, 28px); /* النص متجاوب */
+  line-height: 1.4;
+}
+
+/* --- نصوص عامة --- */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+h1 { font-size: clamp(18px, 4vw, 48px); }
+h2 { font-size: clamp(16px, 3vw, 36px); }
+p  { font-size: clamp(12px, 2.5vw, 20px); }
+
+/* --- عناصر Grid / Flex --- */
+.grid, .flex {
+  display: grid;
+  gap: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text { font-size: clamp(12px, 4vw, 22px); }
+  h1 { font-size: clamp(16px, 5vw, 36px); }
+  h2 { font-size: clamp(14px, 4vw, 28px); }
+  p  { font-size: clamp(12px, 3vw, 18px); }
+}
+
+@media (max-width: 480px) {
+  .hero-text { font-size: clamp(10px, 5vw, 18px); }
+  h1 { font-size: clamp(14px, 7vw, 28px); }
+  h2 { font-size: clamp(12px, 6vw, 24px); }
+  p  { font-size: clamp(10px, 5vw, 16px); }
 }

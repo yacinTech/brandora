@@ -3,98 +3,115 @@
   margin: 60px auto;
   padding: 0 20px;
   text-align: center;
+  font-family: 'Inter', sans-serif;
 }
 
 .portfolio-title {
-  font-size: 36px;
+  font-size: clamp(32px, 5vw, 40px);
   color: #00c3ff;
   margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 3px 10px rgba(0, 195, 255, 0.4);
 }
 
 .portfolio-subtitle {
   color: #aaa;
-  font-size: 18px;
-  margin-bottom: 40px;
+  font-size: clamp(16px, 2.5vw, 20px);
+  margin-bottom: 50px;
+  line-height: 1.6;
 }
 
+/* Grid */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
+/* Card */
 .portfolio-card {
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
   padding: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  cursor: pointer;
 }
 
 .portfolio-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 195, 255, 0.3);
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(0, 195, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-/* Portfolio Image Container */
+/* Image */
 .portfolio-image {
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 15px;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .portfolio-image img {
   width: 100%;
-  height: auto; /* تغيير من ارتفاع ثابت إلى تلقائي */
-  object-fit: cover; /* يحافظ على تغطية البطاقة بالكامل */
+  height: auto;
+  object-fit: cover;
+  border-radius: 15px;
   transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-/* عند Hover */
 .portfolio-card:hover .portfolio-image img {
   transform: scale(1.1);
-  filter: brightness(1.1);
+  filter: brightness(1.15);
+}
+
+/* Project Name */
+.project-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  text-shadow: 0 2px 8px rgba(0, 195, 255, 0.3);
+}
+
+/* Button */
+.view-button {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #00c3ff, #0072ff);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.view-button:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 15px 25px rgba(0, 195, 255, 0.4);
+  background: linear-gradient(135deg, #0072ff, #00c3ff);
+}
+
+.view-button:active {
+  transform: translateY(0px) scale(0.97);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
-  .portfolio-image img {
-    height: auto; /* السماح للصور بالتحجيم التلقائي */
+  .portfolio-grid {
+    gap: 25px;
   }
 }
 
 @media (max-width: 768px) {
   .portfolio-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 20px;
   }
-  .portfolio-image img {
-    width: 100%;
-    height: auto; /* الصور تتكيف بالكامل مع عرض البطاقة */
-  }
-}
-/* زر "Voir le site" احترافي */
-.view-button {
-  display: inline-block;
-  padding: 12px 28px;
-  background: linear-gradient(135deg, #00c3ff, #0072ff); /* تدرج أزرق جذاب */
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.view-button:hover {
-  transform: translateY(-3px) scale(1.05); /* حركة خفيفة عند المرور */
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(135deg, #0072ff, #00c3ff); /* تبديل الألوان عند المرور */
-}
-
-.view-button:active {
-  transform: translateY(0px) scale(0.98); /* تأثير الضغط على الزر */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }

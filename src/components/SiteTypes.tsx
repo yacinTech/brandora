@@ -6,48 +6,61 @@ const SiteTypes = () => {
   const sites = [
     {
       title: "Agences de location de voitures",
-      img: "/car-rental.jpg",
-      description:
-        "Plateformes modernes pour présenter vos véhicules et gérer les réservations efficacement.",
+      description: "Plateformes modernes pour présenter vos véhicules et gérer les réservations efficacement.",
+      img: "/car-rental.jpg"
     },
     {
       title: "Restaurants & Cafés",
-      img: "/restaurant.jpg",
-      description:
-        "Design élégant avec menus interactifs et système de réservation intégré.",
+      description: "Design élégant avec menus interactifs et système de réservation intégré.",
+      img: "/restaurant.jpg"
     },
     {
       title: "Écoles & Cliniques médicales",
-      img: "/school-clinic.jpg",
-      description:
-        "Solutions digitales pour la gestion des rendez-vous et des informations.",
+      description: "Solutions digitales pour la gestion des rendez-vous et des informations.",
+      img: "/school-clinic.jpg"
     },
     {
       title: "Boutiques E-commerce",
-      img: "/ecommerce.jpg",
-      description:
-        "Sites dynamiques, sécurisés et optimisés pour maximiser vos ventes en ligne.",
+      description: "Sites dynamiques, sécurisés et optimisés pour maximiser vos ventes en ligne.",
+      img: "/ecommerce.jpg"
     },
+    {
+      title: "Sites touristiques",
+      description: "Portails interactifs pour les agences touristiques avec informations et réservations.",
+      img: "/tourism.jpg"
+    },
+    {
+      title: "Sites pour entreprises",
+      description: "Sites institutionnels professionnels pour présenter l’entreprise et ses services.",
+      img: "/company.jpg"
+    },
+    {
+      title: "Applications de gestion",
+      description: "Solutions web sur mesure pour gérer vos programmes, employés et données efficacement.",
+      img: "/management.jpg"
+    },
+    {
+      title: "SEO & Email professionnel",
+      description: "Optimisation Google Maps et création d’emails professionnels pour renforcer votre image.",
+      img: "/seo-email.svg"
+    }
   ];
 
   return (
-    <section className="site-types">
+    <section className="site-types-section">
       <h2>Les types de sites que nous concevons</h2>
-
-      <div className="sites-grid">
+      <div className="site-types-grid">
         {sites.map((site, index) => (
-          <div className="site-card" key={index}>
-            <div className="card-border">
-              <div className="image-wrapper">
+          <div className="site-types-card" key={index}>
+            <div className="site-types-card-border">
+              <div className="site-types-image-wrapper">
                 <img src={site.img} alt={site.title} />
-
-                <div className="overlay">
-                  <div className="text-box">
+                <div className="site-types-overlay">
+                  <div className="site-types-text-box">
                     <h3>{site.title}</h3>
                     <p>{site.description}</p>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -55,13 +68,14 @@ const SiteTypes = () => {
       </div>
 
       <style jsx>{`
-        .site-types {
+        .site-types-section {
           max-width: 1200px;
           margin: 80px auto;
           padding: 0 20px;
+          color: #fff;
         }
 
-        .site-types h2 {
+        .site-types-section h2 {
           text-align: center;
           font-size: 36px;
           margin-bottom: 50px;
@@ -71,36 +85,24 @@ const SiteTypes = () => {
           -webkit-text-fill-color: transparent;
         }
 
-        /* ===== GRID ===== */
-        .sites-grid {
+        .site-types-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 35px;
         }
 
-        /* ===== CARD ===== */
-        .site-card {
+        .site-types-card {
           transition: transform 0.4s ease;
         }
+        .site-types-card:hover { transform: translateY(-8px); }
 
-        .site-card:hover {
-          transform: translateY(-8px);
-        }
-
-        /* ===== GRADIENT BORDER ===== */
-        .card-border {
+        .site-types-card-border {
           padding: 2px;
           border-radius: 22px;
-          background: linear-gradient(
-            135deg,
-            #6a11cb,
-            #2575fc,
-            #00d4ff
-          );
+          background: linear-gradient(135deg, #6a11cb, #2575fc, #00d4ff);
         }
 
-        /* ===== IMAGE WRAPPER ===== */
-        .image-wrapper {
+        .site-types-image-wrapper {
           position: relative;
           width: 100%;
           height: 380px;
@@ -109,98 +111,61 @@ const SiteTypes = () => {
           background: #111;
         }
 
-        .image-wrapper img {
+        .site-types-image-wrapper img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          display: block;
           transition: transform 0.6s ease;
         }
 
-        .site-card:hover img {
-          transform: scale(1.06);
-        }
+        .site-types-card:hover img { transform: scale(1.06); }
 
-        /* ===== DARK LAYER FOR CONTRAST ===== */
-        .overlay {
+        .site-types-overlay {
           position: absolute;
           inset: 0;
           display: flex;
-          align-items: flex-end;
-          padding: 25px;
-          background: linear-gradient(
-            to top,
-            rgba(0, 0, 0, 0.75),
-            rgba(0, 0, 0, 0.3),
-            transparent
-          );
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: 20px;
+          background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3), transparent);
+          z-index: 10; /* تأكد من ظهور النص */
         }
 
-        /* ===== BLUR TEXT BOX ===== */
-        .text-box {
+        .site-types-text-box {
           width: 100%;
-          padding: 18px;
-          border-radius: 14px;
-          backdrop-filter: blur(12px);
-          background: rgba(255, 255, 255, 0.08);
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+          padding: 15px;
+          border-radius: 12px;
+          backdrop-filter: blur(8px);
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.12);
+          box-shadow: 0 6px 20px rgba(0,198,255,0.3);
+          z-index: 20;
         }
 
-        .text-box h3 {
+        .site-types-text-box h3 {
           font-size: 20px;
-          margin-bottom: 8px;
-          font-weight: 600;
-          color: #fff;
+          margin-bottom: 6px;
+          font-weight: 700;
+          color: #00c6ff;
         }
 
-        .text-box p {
+        .site-types-text-box p {
           font-size: 14px;
-          color: #e0e0e0;
+          color: #d4d4d4;
           line-height: 1.5;
         }
 
-        /* ===== TABLET ===== */
-        @media (max-width: 992px) {
-          .sites-grid {
-            gap: 25px;
-          }
-
-          .image-wrapper {
-            height: 320px;
-          }
+        @media (max-width: 992px) { 
+          .site-types-grid { gap: 25px; } 
+          .site-types-image-wrapper { height: 320px; } 
         }
-
-        /* ===== MOBILE ===== */
         @media (max-width: 768px) {
-          .site-types {
-            margin: 60px auto;
-          }
-
-          .site-types h2 {
-            font-size: 26px;
-            margin-bottom: 35px;
-          }
-
-          .sites-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
-          }
-
-          .image-wrapper {
-            height: 250px;
-          }
-
-          .text-box {
-            padding: 14px;
-          }
-
-          .text-box h3 {
-            font-size: 17px;
-          }
-
-          .text-box p {
-            font-size: 13px;
-          }
+          .site-types-grid { grid-template-columns: 1fr; gap: 20px; }
+          .site-types-image-wrapper { height: 250px; }
+          .site-types-text-box h3 { font-size: 17px; }
+          .site-types-text-box p { font-size: 13px; }
+          .site-types-section h2 { font-size: 26px; margin-bottom: 35px; }
         }
       `}</style>
     </section>

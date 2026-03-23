@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
 
       <body>
-        <Maintenance/>
+        
         <Navbar />
         <main>{children}</main>
         <WhatsAppButton />

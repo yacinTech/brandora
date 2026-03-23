@@ -19,7 +19,7 @@ export default function ServicesPage() {
 
         <div className="hero-image-wrapper">
           <Image
-            src="/services-hero.png" // صورة PNG بدون خلفية
+            src="/services-hero.jpg"
             alt="Services Digitaux Brandora"
             fill
             priority
@@ -44,26 +44,31 @@ export default function ServicesPage() {
             <h3>Création de sites web professionnels</h3>
             <p>Des sites modernes, rapides et optimisés pour une expérience utilisateur exceptionnelle.</p>
           </div>
+
           <div className="service-card">
             <div className="icon"><i className="fas fa-lock"></i></div>
             <h3>Vente de noms de domaine</h3>
             <p>Trouvez et sécurisez le nom idéal pour renforcer l'identité de votre marque.</p>
           </div>
+
           <div className="service-card">
             <div className="icon"><i className="fas fa-chart-line"></i></div>
             <h3>SEO & Référencement</h3>
             <p>Optimisation stratégique pour améliorer votre visibilité et dominer les résultats Google.</p>
           </div>
+
           <div className="service-card">
             <div className="icon"><i className="fas fa-bullhorn"></i></div>
             <h3>Campagnes publicitaires</h3>
             <p>Gestion experte de campagnes Facebook Ads & Google Ads pour maximiser votre retour sur investissement.</p>
           </div>
+
           <div className="service-card">
             <div className="icon"><i className="fas fa-hashtag"></i></div>
             <h3>Réseaux sociaux</h3>
             <p>Création de contenu stratégique et gestion professionnelle de vos plateformes sociales.</p>
           </div>
+
           <div className="service-card highlight">
             <div className="icon"><i className="fas fa-mobile-screen-button"></i></div>
             <h3>Développement d’applications mobiles</h3>
@@ -73,6 +78,21 @@ export default function ServicesPage() {
       </section>
 
       <style jsx>{`
+        /* 🔥 GLOBAL FIXES (مهم جدا) */
+        :global(html, body) {
+          overflow-x: hidden;
+        }
+
+        :global(*) {
+          box-sizing: border-box;
+        }
+
+        :global(img, video) {
+          max-width: 100%;
+          height: auto;
+          display: block;
+        }
+
         /* HERO SECTION */
         .hero-section {
           position: relative;
@@ -93,19 +113,19 @@ export default function ServicesPage() {
 
         .hero-image-wrapper {
           position: relative;
-          width: 80%;
+          width: 100%;
           max-width: 900px;
           aspect-ratio: 16/9;
           z-index: 1;
           margin-bottom: 40px;
-          box-shadow: 0 20px 60px rgba(0,198,255,0.25), 0 0 80px rgba(0,198,255,0.1) inset; /* تأثير Glow */
           border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 20px 60px rgba(0,198,255,0.25);
           animation: float 6s ease-in-out infinite;
         }
 
         .hero-image {
-          object-fit: contain; /* يحافظ على الشفافية ويظهر الصورة كاملة */
-          border-radius: 20px;
+          object-fit: contain;
         }
 
         .hero-caption {
@@ -114,6 +134,7 @@ export default function ServicesPage() {
           text-align: center;
           color: #ffffff;
           max-width: 800px;
+          margin: 0 auto;
         }
 
         .hero-caption h1 {
@@ -132,7 +153,6 @@ export default function ServicesPage() {
           line-height: 1.6;
         }
 
-        /* Floating Animation */
         @keyframes float {
           0% { transform: translateY(0px); }
           50% { transform: translateY(-15px); }
@@ -144,14 +164,19 @@ export default function ServicesPage() {
           padding: 90px 20px;
           background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
           color: white;
+
+          display: flex;
+          justify-content: center; /* 🔥 توسيط */
         }
 
         .services-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           gap: 30px;
+
+          width: 100%;
           max-width: 1200px;
-          margin: auto;
+          margin: 0 auto;
         }
 
         .service-card {
@@ -195,19 +220,14 @@ export default function ServicesPage() {
 
         /* RESPONSIVE */
         @media(max-width:1024px){
-          .hero-image-wrapper { width: 90%; }
           .hero-caption h1 { font-size: 42px; }
-          .hero-caption p { font-size: 17px; }
         }
 
         @media(max-width:768px){
-          .hero-image-wrapper { width: 95%; }
           .hero-caption h1 { font-size: 34px; }
-          .hero-caption p { font-size: 16px; }
         }
 
         @media(max-width:480px){
-          .hero-image-wrapper { width: 100%; }
           .hero-caption h1 { font-size: 28px; }
           .hero-caption p { font-size: 14px; }
         }

@@ -63,27 +63,30 @@
   gap: 35px;
 }
 
+/* Desktop Links */
 .links a {
   color: #fff;
   font-weight: 600;
   position: relative;
+  text-decoration: none; /* ✅ إزالة أي خط أساسي */
 }
 
+/* إزالة أي خط دائم */
 .links a::after {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: -2px; /* موقع الخط تحت النص */
   left: 0;
   width: 0%;
   height: 2px;
-  background: #ffd700;
+  background: #00c6ff; /* ✅ اللون الأزرق للـ hover */
   transition: 0.3s;
 }
 
+/* خط يظهر عند التحويم فقط */
 .links a:hover::after {
   width: 100%;
 }
-
 /* Hamburger */
 
 .mobile-menu-icon {
@@ -137,33 +140,45 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 280px;
+  width: 260px; /* تصغير العرض قليلاً */
   height: 100vh;
   background: linear-gradient(160deg, #0f172a, #020617);
-  padding: 120px 35px;
+  padding: 100px 25px; /* تقليل الحشو */
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px; /* تقليل المسافة بين الروابط */
   transform: translateX(100%);
   transition: transform 0.45s cubic-bezier(.77,0,.18,1);
   z-index: 999;
-  box-shadow: -10px 0 40px rgba(0,0,0,0.6);
+  box-shadow: -8px 0 30px rgba(0,0,0,0.5);
 }
+
 
 .mobile-sidebar.show {
   transform: translateX(0);
 }
 
 .mobile-sidebar a {
-  color: white;
-  font-size: 22px;
+  color: #e5e7eb;
+  font-size: 20px; /* تصغير حجم النص قليلاً */
   font-weight: 600;
-  transition: 0.3s;
+  position: relative;
+  text-decoration: none; /* إزالة أي خط أساسي */
+  transition: 0.3s ease;
+  padding: 6px 0;
 }
 
 .mobile-sidebar a:hover {
-  color: #ffd700;
-  transform: translateX(-6px);
+  color: #00c6ff; /* اللون الأزرق عند hover */
+  transform: translateX(-4px); /* حركة بسيطة إلى اليسار */
+}
+.mobile-sidebar a:hover {
+  color: #00c6ff; /* اللون الأزرق عند hover */
+  transform: translateX(-4px); /* حركة بسيطة إلى اليسار */
+}
+
+.mobile-sidebar a:hover::after {
+  width: 100%;
 }
 
 /* Responsive */
@@ -174,5 +189,15 @@
   }
   .mobile-menu-icon {
     display: flex;
+  }
+}
+@media (max-width: 768px) {
+  .mobile-sidebar {
+    width: 240px;
+    padding: 90px 20px;
+  }
+
+  .mobile-sidebar a {
+    font-size: 18px;
   }
 }

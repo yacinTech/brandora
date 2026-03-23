@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "src/components/WhyChooseUs/WhyChooseUs.jsx"  ],
+, "src/components/WhyChooseUs/WhyChooseUs.jsx", "src/components/HeroSection/HeroSection.jsx"  ],
   "exclude": ["node_modules"]
 }
