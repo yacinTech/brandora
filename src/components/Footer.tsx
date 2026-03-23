@@ -180,7 +180,8 @@ export default function Footer() {
 
         .contact-section p {
           color: #ddd;
-          margin-bottom: 8px;
+  margin-bottom: 8px;
+  text-decoration: none;
         }
 
         .social-icons {
