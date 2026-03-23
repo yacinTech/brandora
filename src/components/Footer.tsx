@@ -177,6 +177,9 @@ export default function Footer() {
           color: #00c3ff;
           margin-bottom: 15px;
         }
+          .contact-section * {
+  text-decoration: none !important;
+}
 
         .contact-section p {
           color: #ddd;
