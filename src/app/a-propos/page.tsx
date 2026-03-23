@@ -169,9 +169,9 @@ export default function AboutAgency() {
 
       {/* ---------- Stats with Animated Counters ---------- */}
       <section ref={statsRef} style={{
-        display: "flex",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
         justifyContent: "center",
-        flexWrap: "wrap",
         gap: "40px",
         padding: "60px 20px",
         backgroundColor: "#0a0a0a",

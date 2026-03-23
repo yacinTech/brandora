@@ -36,7 +36,7 @@ export default function Footer() {
         <div className="footer-section contact-section">
           <h4>Contact</h4>
           <p>Email: info@brandora.fun</p>
-          <p>Téléphone: +212625902672</p>
+          <p>Téléphone: +212 625 902 672</p>
           <div className="social-icons">
             <a href="https://www.facebook.com/branddorra/" target="_blank" rel="noreferrer">
               <FaFacebookF />

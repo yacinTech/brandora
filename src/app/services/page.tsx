@@ -134,7 +134,7 @@ export default function ServicesPage() {
           text-align: center;
           color: #ffffff;
           max-width: 800px;
-          margin: 0 auto;
+          margin: 0;
         }
 
         .hero-caption h1 {
@@ -161,7 +161,7 @@ export default function ServicesPage() {
 
         /* SERVICES */
         .services-page {
-          padding: 90px 20px;
+          padding: 9px 20px;
           background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
           color: white;
 

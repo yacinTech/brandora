@@ -65,11 +65,11 @@ export default function SocialContact() {
 
       <style jsx>{`
         .social-contact {
-          padding: 80px 20px;
+          padding: 8px 20px;
           text-align: center;
           background: linear-gradient(135deg, #111, #1b1b1b);
           border-radius: 30px;
-          margin: 100px auto;
+          margin: 0 auto;
           max-width: 1200px;
         }
 
