@@ -1,4 +1,7 @@
-export default function sitemap() {
+// app/sitemap.ts
+import { MetadataRoute } from 'next';
+
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://brandora.fun";
 
   return [
@@ -14,7 +17,7 @@ export default function sitemap() {
       changeFrequency: "monthly",
       priority: 0.8,
     },
-      {
+    {
       url: `${baseUrl}/projects`,
       lastModified: new Date(),
       changeFrequency: "monthly",
