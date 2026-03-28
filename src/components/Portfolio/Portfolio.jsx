@@ -18,6 +18,11 @@ const projects = [
     url: "https://airnetiic.com",
   },
   {
+  name: "مؤسسة تعليمية",
+  image: "/images/istifae.jpg",
+  url: "https://www.istifae-academy.com/",
+},
+  {
     name: "Site de commerce électronique",
     image: "/images/ecommerce.jpg",
     url: "https://elynor-store.vercel.app/",
