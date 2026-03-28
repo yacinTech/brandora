@@ -18,7 +18,7 @@ const projects = [
     url: "https://airnetiic.com",
   },
   {
-  name: "مؤسسة تعليمية",
+  name: "Établissement éducatif",
   image: "/images/istifae.jpg",
   url: "https://www.istifae-academy.com/",
 },
