@@ -1,137 +1,190 @@
 "use client";
 
-export default function ServicesSection() {
+import { useEffect, useRef, useState } from "react";
+import {
+  FaGlobe,
+  FaLaptopCode,
+  FaSearch,
+  FaBullhorn,
+  FaMapMarkedAlt,
+  FaEnvelopeOpenText,
+  FaBookOpen,
+  FaBriefcase,
+  FaTools,
+  FaPenNib,
+} from "react-icons/fa";
+
+const services = [
+  {
+    title: "Création de sites web",
+    description:
+      "Des sites modernes, rapides et optimisés pour convertir vos visiteurs en clients.",
+    icon: FaLaptopCode,
+  },
+  {
+    title: "Noms de domaine",
+    description:
+      "Nous vous aidons à choisir et sécuriser le nom idéal pour votre marque.",
+    icon: FaGlobe,
+  },
+  {
+    title: "SEO & Référencement",
+    description:
+      "Améliorez votre visibilité sur Google grâce à des stratégies SEO efficaces.",
+    icon: FaSearch,
+  },
+  {
+    title: "Marketing & Réseaux Sociaux",
+    description:
+      "Gestion de campagnes publicitaires et des réseaux sociaux pour maximiser votre impact.",
+    icon: FaBullhorn,
+  },
+  {
+    title: "Optimisation Google Maps",
+    description:
+      "Améliorez votre présence locale et facilitez la découverte de votre entreprise sur Google Maps.",
+    icon: FaMapMarkedAlt,
+  },
+  {
+    title: "Email Professionnel",
+    description:
+      "Fourniture d'adresses e-mail professionnelles pour renforcer la crédibilité et la communication de votre marque.",
+    icon: FaEnvelopeOpenText,
+  },
+  {
+    title: "Création de catalogues",
+    description:
+      "Conception de catalogues professionnels et élégants pour présenter vos produits et services avec clarté et impact.",
+    icon: FaBookOpen,
+  },
+  {
+    title: "Présentations pour entreprises",
+    description:
+      "Réalisation de présentations modernes et structurées pour valoriser votre entreprise, vos offres et vos projets.",
+    icon: FaBriefcase,
+  },
+  {
+    title: "Maintenance de sites web",
+    description:
+      "Nous assurons la maintenance, les mises à jour et le bon fonctionnement de votre site pour garantir sécurité et performance.",
+    icon: FaTools,
+  },
+  {
+    title: "Création de logos",
+    description:
+      "Création de logos uniques, professionnels et mémorables pour les entreprises et les organisations.",
+    icon: FaPenNib,
+  },
+];
+
+function ServiceCard({ service, index }) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+  const Icon = service.icon;
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+        }
+      },
+      {
+        threshold: 0.18,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const variants = [
+    "translate-x-[-70px]",
+    "translate-y-[70px]",
+    "translate-x-[70px]",
+  ];
+
+  const initialTransform = variants[index % 3];
+
   return (
-    <>
-      <section className="services">
-        <h2>Nos Services</h2>
-
-        <div className="services-grid">
-          <div className="card">
-            <h3>Création de sites web</h3>
-            <p>
-              Des sites modernes, rapides et optimisés pour convertir vos
-              visiteurs en clients.
-            </p>
-          </div>
-
-          <div className="card">
-            <h3>Noms de domaine</h3>
-            <p>
-              Nous vous aidons à choisir et sécuriser le nom idéal pour votre
-              marque.
-            </p>
-          </div>
-
-          <div className="card">
-            <h3>SEO & Référencement</h3>
-            <p>
-              Améliorez votre visibilité sur Google grâce à des stratégies SEO efficaces.
-            </p>
-          </div>
-
-          <div className="card">
-            <h3>Marketing & Réseaux Sociaux</h3>
-            <p>
-              Gestion de campagnes publicitaires et des réseaux sociaux pour maximiser votre impact.
-            </p>
-          </div>
-
-          {/* بطاقة جديدة – تحسين خرائط غوغل */}
-          <div className="card">
-            <h3>Optimisation Google Maps</h3>
-            <p>
-              Améliorez votre présence locale et facilitez la découverte de votre entreprise sur Google Maps.
-            </p>
-          </div>
-
-          {/* بطاقة جديدة – بريد إلكتروني احترافي */}
-          <div className="card">
-            <h3>Email Professionnel</h3>
-            <p>
-              Fourniture d'adresses e-mail professionnelles pour renforcer la crédibilité et la communication de votre marque.
-            </p>
-          </div>
+    <div
+      ref={ref}
+      className={`group flex h-full flex-col rounded-2xl border border-[rgba(0,198,255,0.25)] bg-[rgba(15,23,42,0.8)] p-6 shadow-[0_10px_30px_rgba(0,198,255,0.2)] backdrop-blur-xl transition-all duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,198,255,0.35)]
+      ${visible ? "translate-x-0 translate-y-0 scale-100 opacity-100 blur-0" : `${initialTransform} scale-95 opacity-0 blur-[6px]`}`}
+      style={{ transitionDelay: `${index * 90}ms` }}
+    >
+      <div className="mb-4 flex items-center gap-3">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-400/10 text-[#00c6ff] transition duration-500 group-hover:scale-110 group-hover:bg-cyan-400/20 group-hover:shadow-[0_0_18px_rgba(0,198,255,0.25)]">
+          <Icon className="text-lg" />
         </div>
-      </section>
 
-      <style jsx>{`
-        .services {
-          max-width: 1200px;
-          margin: 80px auto;
-          padding: 0 20px;
-          text-align: center;
-          color: #fff;
+        <h3 className="flex-1 text-[16px] font-semibold leading-tight text-[#00c6ff]">
+          {service.title}
+        </h3>
+      </div>
+
+      <p className="mt-auto text-sm leading-7 text-neutral-300 md:text-[15px]">
+        {service.description}
+      </p>
+    </div>
+  );
+}
+
+export default function ServicesSection() {
+  const headerRef = useRef(null);
+  const [headerVisible, setHeaderVisible] = useState(false);
+
+  useEffect(() => {
+    const node = headerRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHeaderVisible(true);
         }
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
 
-        .services h2 {
-          font-size: 36px;
-          margin-bottom: 50px;
-          background: linear-gradient(90deg, #00c6ff, #0072ff);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
+    observer.observe(node);
 
-        .services-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 30px;
-        }
+    return () => observer.disconnect();
+  }, []);
 
-        .card {
-          background: rgba(15, 23, 42, 0.8);
-          backdrop-filter: blur(12px);
-          border-radius: 16px;
-          padding: 25px;
-          box-shadow: 0 10px 30px rgba(0, 198, 255, 0.2);
-          border: 1px solid rgba(0,198,255,0.25);
-          transition: transform 0.5s ease, box-shadow 0.5s ease;
-          cursor: pointer;
-        }
+  return (
+    <section className="relative mx-auto my-20 max-w-7xl overflow-hidden px-5 text-white md:px-6 lg:px-8">
+      <div className="pointer-events-none absolute -left-20 top-10 h-52 w-52 rounded-full bg-cyan-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-20 bottom-10 h-52 w-52 rounded-full bg-blue-500/10 blur-3xl" />
 
-        .card:hover {
-          transform: translateY(-10px) scale(1.03);
-          box-shadow: 0 20px 40px rgba(0, 198, 255, 0.35);
-        }
+      <div
+        ref={headerRef}
+        dir="ltr"
+        className={`mb-14 flex flex-col items-center text-center transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]
+        ${headerVisible ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-[6px]"}`}
+      >
+        <h2 className="bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-3xl font-extrabold text-transparent md:text-4xl">
+          Nos Services
+        </h2>
 
-        .card h3 {
-          font-size: 20px;
-          margin-bottom: 12px;
-          color: #00c6ff;
-          font-weight: 600;
-        }
+        <p className="mt-4 max-w-xl text-sm leading-relaxed text-neutral-300 md:text-base">
+          Des solutions digitales modernes pour valoriser votre image et accélérer votre croissance.
+        </p>
+      </div>
 
-        .card p {
-          color: #d4d4d4;
-          font-size: 15px;
-          line-height: 1.5;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-          .services-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-
-        @media (max-width: 768px) {
-          .services-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .services h2 {
-            font-size: 28px;
-          }
-
-          .card h3 {
-            font-size: 18px;
-          }
-
-          .card p {
-            font-size: 14px;
-          }
-        }
-      `}</style>
-    </>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {services.map((service, index) => (
+          <ServiceCard key={index} service={service} index={index} />
+        ))}
+      </div>
+    </section>
   );
 }

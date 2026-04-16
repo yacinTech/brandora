@@ -3,10 +3,11 @@ import type { ReactNode } from "react";
 
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/Footer";
-import WhatsAppButton from "../components/WhatsAppButton";
 import SEO from "../components/SEO";
+import FloatingContact from "../components/FloatingContact";
 import "./globals.css";
-import Maintenance from "../components/Maintenance";
+
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
@@ -29,8 +30,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         
         <Navbar />
         <main>{children}</main>
-        <WhatsAppButton />
         <Footer />
+        <FloatingContact />
       </body>
     </html>
   );

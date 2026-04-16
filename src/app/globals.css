@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* --- Reset أساسي --- */
 html, body {
   width: 100%;

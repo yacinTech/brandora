@@ -7,31 +7,51 @@ const projects = [
     image: "/images/kitchen.jpg",
     url: "https://novara.ma",
   },
-  {
-    name: "Entreprise de jardinage et journaux",
+     {
+    name: "Site de services touristiques et de loisirs",
+    image: "/images/loisirs.jpg",
+    url: "https://www.parapente-aglou-legzira.com/",
+  },
+    {
+  name: "Établissement éducatif",
+  image: "/images/istifae.jpg",
+  url: "https://www.istifae-academy.com/",
+},
+
+       {
+    name: "Entreprise de transport et logistique",
+    image: "/images/baraki.jpg",
+    url: "https://barakitransetfils.com/",
+  },
+
+    {
+    name: "Agence d'éducation et d'orientation",
+    image: "/images/agency.jpg",
+    url: "https://cabeduconseil.com/",
+  },
+    {
+    name: "Entreprise de jardinage",
     image: "/images/gardening.jpg",
     url: "https://bloomnest.site",
+  },
+      {
+    name: "Entreprise de travaux publics",
+    image: "/images/aminal.jpg",
+    url: "https://aminall.vercel.app/",
   },
   {
     name: "Entreprise de réfrigération et climatisation",
     image: "/images/cooling.jpg",
     url: "https://airnetiic.com",
   },
-  {
-  name: "Établissement éducatif",
-  image: "/images/istifae.jpg",
-  url: "https://www.istifae-academy.com/",
-},
+
   {
     name: "Site de commerce électronique",
     image: "/images/ecommerce.jpg",
     url: "https://elynor-store.vercel.app/",
   },
-  {
-    name: "Bibliothèque électronique",
-    image: "/images/library.jpg",
-    url: "https://library-odine.vercel.app/",
-  },
+
+
 ];
 
 export default function Portfolio() {
