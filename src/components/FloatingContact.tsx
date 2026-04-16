@@ -10,7 +10,7 @@ export default function FloatingContact() {
   const whatsappNumber = "212646342598"; // 👈 غيره
 
   const message =
-    "Bonjour, je souhaite réserver une expérience de parachutisme 🪂";
+    "Bonjour Brandora, je suis intéressé(e) par vos services digitaux et je souhaiterais échanger avec vous à propos de mon projet. Merci.";
 
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">

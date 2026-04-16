@@ -34,7 +34,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://brandora.fun/projects/opengraph-image.jpg",
+        url: "https://brandora.fun/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Projets réalisés par Brandora",
