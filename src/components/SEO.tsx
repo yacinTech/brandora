@@ -38,7 +38,7 @@ export const defaultSEO: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logo.png",
+        url: "https://brandora.fun/opengraph-image.jpg",
         width: 800,
         height: 600,
         alt: "Brandora Agence Digitale",
