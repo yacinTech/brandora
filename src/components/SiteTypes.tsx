@@ -7,42 +7,42 @@ const SiteTypes = () => {
     {
       title: "Agences de location de voitures",
       description: "Plateformes modernes pour présenter vos véhicules et gérer les réservations efficacement.",
-      img: "/car-rental.jpg"
+      img: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776601739/car-rental_eyosv0.webp"
     },
     {
       title: "Restaurants & Cafés",
       description: "Design élégant avec menus interactifs et système de réservation intégré.",
-      img: "/restaurant.jpg"
+      img: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776601740/restaurant_zm9isa.avif"
     },
     {
       title: "Écoles & Cliniques médicales",
       description: "Solutions digitales pour la gestion des rendez-vous et des informations.",
-      img: "/school-clinic.jpg"
+      img: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776601741/school-clinic_wc0a6s.webp"
     },
     {
       title: "Boutiques E-commerce",
       description: "Sites dynamiques, sécurisés et optimisés pour maximiser vos ventes en ligne.",
-      img: "/ecommerce.jpg"
+      img: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776601740/ecommerce_kwayah.jpg"
     },
     {
       title: "Sites touristiques",
       description: "Portails interactifs pour les agences touristiques avec informations et réservations.",
-      img: "/tourism.jpg"
+      img: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776601741/tourism_anecnm.jpg"
     },
     {
       title: "Sites pour entreprises",
       description: "Sites institutionnels professionnels pour présenter l’entreprise et ses services.",
-      img: "/company.jpg"
+      img: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776601741/management_sitkgy.jpg"
     },
     {
       title: "Applications de gestion",
       description: "Solutions web sur mesure pour gérer vos programmes, employés et données efficacement.",
-      img: "/management.jpg"
+      img: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776601741/company_nqyd4x.jpg"
     },
     {
       title: "SEO & Email professionnel",
       description: "Optimisation Google Maps et création d’emails professionnels pour renforcer votre image.",
-      img: "/seo-email.svg"
+      img: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776601892/seo-email_uoewif.svg"
     }
   ];
 

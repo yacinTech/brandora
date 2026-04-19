@@ -4,51 +4,51 @@ import "./Portfolio.css";
 const projects = [
   {
     name: "Entreprise de maintenance et design de cuisines",
-    image: "/images/kitchen.jpg",
+    image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602320/kitchen_qg1o7b.jpg",
     url: "https://novara.ma",
   },
      {
     name: "Site de services touristiques et de loisirs",
-    image: "/images/loisirs.jpg",
+    image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602321/loisirs_tyqneq.jpg",
     url: "https://www.parapente-aglou-legzira.com/",
   },
     {
   name: "Établissement éducatif",
-  image: "/images/istifae.jpg",
+  image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602320/istifae_mpfgzz.jpg",
   url: "https://www.istifae-academy.com/",
 },
 
        {
     name: "Entreprise de transport et logistique",
-    image: "/images/baraki.jpg",
+    image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602318/baraki_wkrrcu.jpg",
     url: "https://barakitransetfils.com/",
   },
 
     {
     name: "Agence d'éducation et d'orientation",
-    image: "/images/agency.jpg",
+    image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602316/agency_edxh0s.jpg",
     url: "https://cabeduconseil.com/",
   },
     {
     name: "Entreprise de jardinage",
-    image: "/images/gardening.jpg",
+    image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602319/gardening_qbyfpd.jpg",
     url: "https://bloomnest.site",
   },
       {
     name: "Entreprise de travaux publics",
     image: "/images/aminal.jpg",
-    url: "https://aminall.vercel.app/",
+    url: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602317/aminal_pg3xzj.jpg",
   },
   {
     name: "Entreprise de réfrigération et climatisation",
-    image: "/images/cooling.jpg",
+    image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602318/cooling_pz0nj0.jpg",
     url: "https://airnetiic.com",
   },
 
   {
     name: "Site de commerce électronique",
     image: "/images/ecommerce.jpg",
-    url: "https://elynor-store.vercel.app/",
+    url: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602319/ecommerce_uiwzje.jpg",
   },
 
 

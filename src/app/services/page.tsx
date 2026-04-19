@@ -19,7 +19,7 @@ export default function ServicesPage() {
 
         <div className="hero-image-wrapper">
           <Image
-            src="/services-hero.jpg"
+            src="https://res.cloudinary.com/de6rs8vzj/image/upload/v1776601982/services-hero_yghvgn.png"
             alt="Services Digitaux Brandora"
             fill
             priority

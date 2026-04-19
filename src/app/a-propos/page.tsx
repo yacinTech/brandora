@@ -8,7 +8,7 @@ export default function AboutAgency() {
   const manager = {
     name: "Yassine El Maataoui",
     role: "Fondateur & CEO",
-    img: "/team1.jpg",
+    img: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602183/team1_ydrae6.jpg",
     bio: "Yassine est le fondateur de Brandora, passionné par le développement web et les solutions digitales innovantes. Il guide l'agence avec vision, créativité et expertise technique.",
     portfolio: "https://www.yassinelmaataouiportfolio.online/",
     github: "https://github.com/yacinTech",
