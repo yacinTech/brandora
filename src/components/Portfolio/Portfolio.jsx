@@ -13,6 +13,11 @@ const projects = [
     url: "https://www.parapente-aglou-legzira.com/",
   },
     {
+    name: "Entreprise de construction et travaux publics",
+    image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776892088/WhatsApp_Image_2026-04-22_at_22.06.43_nn636s.jpg",
+    url: "https://comnex.ma/",
+  },
+    {
   name: "Établissement éducatif",
   image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602320/istifae_mpfgzz.jpg",
   url: "https://www.istifae-academy.com/",
@@ -36,8 +41,8 @@ const projects = [
   },
       {
     name: "Entreprise de travaux publics",
-    image: "/images/aminal.jpg",
-    url: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602317/aminal_pg3xzj.jpg",
+    image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602317/aminal_pg3xzj.jpg",
+    url: "https://aminall.vercel.app/",
   },
   {
     name: "Entreprise de réfrigération et climatisation",
@@ -47,8 +52,8 @@ const projects = [
 
   {
     name: "Site de commerce électronique",
-    image: "/images/ecommerce.jpg",
-    url: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602319/ecommerce_uiwzje.jpg",
+    image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602319/ecommerce_uiwzje.jpg",
+    url: "https://elynor-store.vercel.app/",
   },
 
 
