@@ -90,11 +90,12 @@ function ServiceCard({ service, index }) {
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
+          observer.unobserve(node);
         }
       },
       {
-        threshold: 0.18,
-        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.08,
+        rootMargin: "0px 0px -10px 0px",
       }
     );
 
@@ -104,9 +105,9 @@ function ServiceCard({ service, index }) {
   }, []);
 
   const variants = [
-    "translate-x-[-70px]",
-    "translate-y-[70px]",
-    "translate-x-[70px]",
+    "-translate-x-6",
+    "translate-y-6",
+    "translate-x-6",
   ];
 
   const initialTransform = variants[index % 3];
@@ -114,12 +115,16 @@ function ServiceCard({ service, index }) {
   return (
     <div
       ref={ref}
-      className={`group flex h-full flex-col rounded-2xl border border-[rgba(0,198,255,0.25)] bg-[rgba(15,23,42,0.8)] p-6 shadow-[0_10px_30px_rgba(0,198,255,0.2)] backdrop-blur-xl transition-all duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,198,255,0.35)]
-      ${visible ? "translate-x-0 translate-y-0 scale-100 opacity-100 blur-0" : `${initialTransform} scale-95 opacity-0 blur-[6px]`}`}
-      style={{ transitionDelay: `${index * 90}ms` }}
+      className={`group flex h-full flex-col rounded-2xl border border-[rgba(0,198,255,0.25)] bg-[rgba(15,23,42,0.8)] p-6 shadow-[0_10px_30px_rgba(0,198,255,0.2)] backdrop-blur-xl transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,198,255,0.35)]
+      ${
+        visible
+          ? "translate-x-0 translate-y-0 scale-100 opacity-100"
+          : `${initialTransform} scale-[0.98] opacity-0`
+      }`}
+      style={{ transitionDelay: `${index * 40}ms` }}
     >
       <div className="mb-4 flex items-center gap-3">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-400/10 text-[#00c6ff] transition duration-500 group-hover:scale-110 group-hover:bg-cyan-400/20 group-hover:shadow-[0_0_18px_rgba(0,198,255,0.25)]">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-400/10 text-[#00c6ff] transition duration-300 group-hover:scale-110 group-hover:bg-cyan-400/20 group-hover:shadow-[0_0_18px_rgba(0,198,255,0.25)]">
           <Icon className="text-lg" />
         </div>
 
@@ -147,11 +152,12 @@ export default function ServicesSection() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setHeaderVisible(true);
+          observer.unobserve(node);
         }
       },
       {
-        threshold: 0.2,
-        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.08,
+        rootMargin: "0px 0px -10px 0px",
       }
     );
 
@@ -168,8 +174,12 @@ export default function ServicesSection() {
       <div
         ref={headerRef}
         dir="ltr"
-        className={`mb-14 flex flex-col items-center text-center transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]
-        ${headerVisible ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-[6px]"}`}
+        className={`mb-14 flex flex-col items-center text-center transition-all duration-500 ease-out
+        ${
+          headerVisible
+            ? "translate-y-0 opacity-100"
+            : "translate-y-4 opacity-0"
+        }`}
       >
         <h2 className="bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-3xl font-extrabold text-transparent md:text-4xl">
           Nos Services
