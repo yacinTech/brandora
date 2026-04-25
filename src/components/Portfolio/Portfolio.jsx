@@ -17,6 +17,11 @@ const projects = [
     image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776892088/WhatsApp_Image_2026-04-22_at_22.06.43_nn636s.jpg",
     url: "https://comnex.ma/",
   },
+   {
+    name: "Entreprise de montage industriel",
+    image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1777124373/WhatsApp_Image_2026-04-25_at_14.38.38_o4pgwi.jpg",
+    url: "https://jadida-montage.vercel.app/fr",
+  },
     {
   name: "Établissement éducatif",
   image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602320/istifae_mpfgzz.jpg",
