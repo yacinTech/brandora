@@ -53,7 +53,7 @@ const projects = [
   {
     name: "Site de commerce électronique",
     image: "https://res.cloudinary.com/de6rs8vzj/image/upload/v1776602319/ecommerce_uiwzje.jpg",
-    url: "https://elynor-store.vercel.app/",
+    url: "https://elynor.netlify.app/",
   },
 
 
