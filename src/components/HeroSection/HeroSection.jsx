@@ -62,11 +62,13 @@ export default function HeroSection() {
 
             {/* Buttons */}
             <div className="mt-8 flex w-full flex-nowrap items-center justify-center gap-2 sm:gap-3 lg:justify-start">
-              <Link
-                href="/projects"
+             <Link
+  href="https://res.cloudinary.com/de6rs8vzj/image/upload/v1777393443/Pr%C3%A9sentation_projet_professionnel_agence_marketing_compressed_qhon6q.pdf"
+  download
+  target="_blank"
                 className="inline-flex h-11 flex-1 min-w-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-md bg-[#00c6ff] px-3 text-sm font-semibold text-[#0f0f0f] shadow-[0_0_12px_rgba(0,198,255,0.25)] transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#00c6ff]/90 hover:shadow-[0_0_18px_rgba(0,198,255,0.4)] sm:h-12 sm:flex-none sm:px-5 sm:text-base lg:min-w-[180px]"
               >
-                <span>Découvrir</span>
+                <span>Télécharger le catalogue</span>
                 <HiOutlineArrowRight className="shrink-0 text-base sm:text-lg" />
               </Link>
 
