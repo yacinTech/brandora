@@ -93,12 +93,17 @@ export default function HeroSection() {
             <div className="relative w-full overflow-hidden md:rounded-2xl md:border md:border-cyan-400/30 md:shadow-[0_10px_25px_rgba(0,0,0,0.6),0_0_15px_rgba(0,198,255,0.18),0_0_30px_rgba(0,198,255,0.1)]">
               <video
                 className="block h-[260px] w-full object-cover sm:h-[320px] md:h-[420px] lg:h-[500px]"
-                src="https://res.cloudinary.com/de6rs8vzj/video/upload/v1776601546/hero-video_hm4pga.mp4"
                 autoPlay
                 muted
                 loop
                 playsInline
-              />
+                preload="none"
+              >
+                <source
+                  src="https://res.cloudinary.com/de6rs8vzj/video/upload/f_auto,q_auto,vc_auto,w_960/v1776601546/hero-video_hm4pga.mp4"
+                  type="video/mp4"
+                />
+              </video>
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,198,255,0.08),transparent_55%)]" />
             </div>
