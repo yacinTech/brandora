@@ -91,19 +91,22 @@ export default function HeroSection() {
             }`}
           >
             <div className="relative w-full overflow-hidden md:rounded-2xl md:border md:border-cyan-400/30 md:shadow-[0_10px_25px_rgba(0,0,0,0.6),0_0_15px_rgba(0,198,255,0.18),0_0_30px_rgba(0,198,255,0.1)]">
-              <video
-                className="block h-[260px] w-full object-cover sm:h-[320px] md:h-[420px] lg:h-[500px]"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="none"
-              >
-                <source
-                  src="https://res.cloudinary.com/de6rs8vzj/video/upload/v1778339266/hero-video_hm4pga_1_cgrhaz.mp4"
-                  type="video/mp4"
-                />
-              </video>
+            <video
+  className="block h-[260px] w-full object-cover sm:h-[320px] md:h-[420px] lg:h-[500px]"
+  autoPlay
+  muted
+  playsInline
+  preload="metadata"
+  poster="https://res.cloudinary.com/de6rs8vzj/video/upload/f_jpg,q_auto,w_900/v1778339266/hero-video_hm4pga_1_cgrhaz.jpg"
+  onEnded={(e) => {
+    e.currentTarget.pause();
+  }}
+>
+  <source
+    src="https://res.cloudinary.com/de6rs8vzj/video/upload/f_auto,q_auto:low,vc_h264,w_1280/v1778339266/hero-video_hm4pga_1_cgrhaz.mp4"
+    type="video/mp4"
+  />
+</video>
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,198,255,0.08),transparent_55%)]" />
             </div>
