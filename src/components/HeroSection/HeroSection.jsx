@@ -100,7 +100,7 @@ export default function HeroSection() {
                 preload="none"
               >
                 <source
-                  src="https://res.cloudinary.com/de6rs8vzj/video/upload/f_auto,q_auto,vc_auto,w_960/v1776601546/hero-video_hm4pga.mp4"
+                  src="https://res.cloudinary.com/de6rs8vzj/video/upload/v1778339266/hero-video_hm4pga_1_cgrhaz.mp4"
                   type="video/mp4"
                 />
               </video>
