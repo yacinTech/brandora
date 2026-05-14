@@ -103,7 +103,7 @@ export default function HeroSection() {
   }}
 >
   <source
-    src="https://res.cloudinary.com/de6rs8vzj/video/upload/f_auto,q_auto:low,vc_h264,w_1280/v1778339266/hero-video_hm4pga_1_cgrhaz.mp4"
+    src="https://res.cloudinary.com/dglxzlutk/video/upload/q_auto/f_auto/v1778795206/hero-video_hm4pga_1_cgrhaz_u9frpp.mp4"
     type="video/mp4"
   />
 </video>
