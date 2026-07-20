@@ -7,7 +7,7 @@ export default function FloatingContact() {
   const [open, setOpen] = useState(false);
 
   const phoneNumber = "212625902672"; // 👈 غيره برقمك الحقيقي
-  const whatsappNumber = "212646342598"; // 👈 غيره
+  const whatsappNumber = "212723855732"; // 👈 غيره
 
   const message =
     "Bonjour Brandora, je suis intéressé(e) par vos services digitaux et je souhaiterais échanger avec vous à propos de mon projet. Merci.";
