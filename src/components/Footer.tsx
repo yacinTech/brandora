@@ -41,7 +41,7 @@ export default function Footer() {
             <a href="https://www.facebook.com/branddorra/" target="_blank" rel="noreferrer">
               <FaFacebookF />
             </a>
-            <a href="https://wa.me/212625902672" target="_blank" rel="noreferrer">
+            <a href="https://wa.me/212723855732" target="_blank" rel="noreferrer">
               <FaWhatsapp />
             </a>
             <a href="https://www.instagram.com/brandorra1" target="_blank" rel="noreferrer">
