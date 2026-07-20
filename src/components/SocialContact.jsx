@@ -35,7 +35,7 @@ export default function SocialContact() {
           </a>
 
           <a
-            href="https://wa.me/212625902672"
+            href="https://wa.me/212723855732"
             target="_blank"
             rel="noopener noreferrer"
             className="social-card"
