@@ -52,9 +52,22 @@ export default function Footer() {
 
       </div>
 
-      <div className="footer-bottom">
-        &copy; {new Date().getFullYear()} Brandora. Tous droits réservés.
-      </div>
+     <div className="footer-bottom">
+  <span>
+    &copy; {new Date().getFullYear()} Brandora. Tous droits réservés.
+  </span>
+
+  <span className="official-site">
+    Site officiel :{" "}
+    <a
+      href="https://brandora.ma/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      brandora.ma
+    </a>
+  </span>
+</div>
 
       <style jsx>{`
         .footer {
@@ -211,13 +224,33 @@ export default function Footer() {
         }
 
         /* Footer Bottom */
-        .footer-bottom {
-          text-align: center;
-          font-size: 14px;
-          color: #777;
-          border-top: 1px solid rgba(255,255,255,0.1);
-          padding-top: 20px;
-        }
+       .footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.official-site {
+  color: #888;
+}
+
+.official-site a {
+  color: #00c3ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.official-site a:hover {
+  color: #6a11cb;
+  text-decoration: underline;
+}
 
         /* Responsive */
         @media (max-width: 768px) {
